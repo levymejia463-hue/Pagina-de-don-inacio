@@ -183,7 +183,7 @@ nav ul li a{
     position: absolute;
     transform: translateX(-180px);
     left: 0 ;
-    height: 15vh;
+    height: 10vh;
     padding: 20px;
     text-align: end;
     transition: all 0.3s ease-out;
@@ -191,6 +191,12 @@ nav ul li a{
 
 .present-card:hover{
     transform: translateX(-170px);
+}
+
+.present-card img{
+    position: absolute;
+    right: 8px;
+    bottom: 13px;
 }
 
 
@@ -387,6 +393,7 @@ nav ul li a{
 }
 
 .contact{
+    background: url(extern-arch/portada.png);
     height: 90vh;
     display: flex;
 }
@@ -402,13 +409,62 @@ nav ul li a{
 }
 
 form {
+    color: #fff;
     flex: 1;
     width: 500px;
     padding: 40px;
-    background: #fff;
+    font-family: "Inria Serif", serif;;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+form h1{
+    font-size: 3rem;
+}
+
+form label{
+    font-size: 1.3rem;
+}
+
+form input{
+    height: 35px;
+    color: #fff;
+    font-family: "Inria Serif", serif;
+    background: none;
+    border: none;
+    margin-bottom: 10px;
+    outline: none;
+    font-size: 1.2rem;
+    border-bottom: solid #fca43f;
+}
+
+textarea{
+    height: 100px;
+    color: #fff;
+    background: none;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    font-family: "Inria Serif", serif;
+    font-size: 1.2rem;
+    border: solid #fca43f;
+    padding: 10px;
+}
+
+.what{
+    height: 40px;
+    margin-top: 10px;
+    background-color: #fca43f;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+.what:hover{
+    background-color: #fabc74;
 }
 
 .overlay {
@@ -478,13 +534,47 @@ form {
     right: 20px;
     bottom: 50px;
     border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 5px;
     width: 50px;
     z-index: 999;
     height: 50px;
     border: none;
+    overflow: hidden;
     cursor: pointer;
     background-color: #ffba6a;
+    transition: 0.3s ease-out;
 }
+
+.reopen-btn:hover {
+    border-radius: 30px;
+    width: 200px;
+}
+
+.reopen-btn span{
+    transition: color 0.2s ease;
+}
+
+.reopen-btn span:not(:first-child){
+    display: none;
+    transform: scale(0.5);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.reopen-btn:hover span:not(:first-child){
+    display: inline-flex;
+    transform: scale(1);
+}
+
+.reopen-btn span:hover,
+.reopen-btn span:hover ~ span {
+    color: #ffffff;
+}
+
+
 
 
 .contacts-btn {
@@ -505,7 +595,7 @@ form {
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     .logo1 img{
     height: auto;
     max-width: 50%;
@@ -518,5 +608,10 @@ form {
 
     .chef img{
         height: 450px;
+    }
+
+    .present-card{
+        height: 7vh;
+        width: 25vh;
     }
 }
