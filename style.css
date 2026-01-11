@@ -182,7 +182,7 @@ nav ul li a{
     width: 35vh;
     position: absolute;
     transform: translateX(-180px);
-    left: 0 ;
+    left:0 ;
     height: 10vh;
     padding: 20px;
     text-align: end;
@@ -215,7 +215,7 @@ nav ul li a{
 
 .productos{
     display: flex;
-    padding: 50px;
+    padding: 0px;
     height: 100vh;
     background: #ffffff;
     justify-content: center;
@@ -242,12 +242,30 @@ nav ul li a{
   scroll-snap-align: start;
   flex-shrink: 0;
     padding: 20px;
-    width: 300px;
+    width: 200px;
+    height: 370px;
     display: flex;
     border-radius: 20px;
     flex-direction: column;
     text-align: center;
+    overflow: hidden;
     background-color: #fca43f;
+}
+
+
+
+.card-item:hover img{
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.card-item img{
+    display: flex;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: height 0.4s ease;
 }
 
 .card-item h2{
@@ -255,6 +273,14 @@ nav ul li a{
     margin-bottom: 10px;
     background-color: #fabc74;
     width: 100%;
+}
+
+.card-item span{
+    display: none;
+}
+
+.card-item:hover span{
+    display: block;
 }
 
 .botonotes{
@@ -394,7 +420,7 @@ nav ul li a{
 
 .contact{
     background: url(extern-arch/portada.png);
-    height: 90vh;
+    height: 100vh;
     display: flex;
 }
 
@@ -428,6 +454,7 @@ form label{
 }
 
 form input{
+    display: flex;
     height: 35px;
     color: #fff;
     font-family: "Inria Serif", serif;
@@ -532,7 +559,7 @@ textarea{
 .reopen-btn {
     position: fixed;
     right: 20px;
-    bottom: 50px;
+    bottom: 20px;
     border-radius: 100%;
     display: flex;
     align-items: center;
@@ -595,7 +622,7 @@ textarea{
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 700px) {
     .logo1 img{
     height: auto;
     max-width: 50%;
@@ -613,5 +640,50 @@ textarea{
     .present-card{
         height: 7vh;
         width: 25vh;
+    }
+
+    .contact{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+
+    form {
+        max-width: 350px;
+        padding: 0;
+        margin: 20px;
+    }
+
+    form h1{
+        font-size: 1.8rem;
+    }
+
+    .texto{
+        padding: 10px;
+    }
+
+    .present-card {
+        transform: translateX(0);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        left: auto;
+        right: 20px;
+        bottom: 90px;
+        background-color: #fabc74;
+    }
+
+    .present-card:hover{
+        transform: translateY(-10px);
+}
+
+    .present-card img{
+        position: static;
+        width: 30px;
+        height: 30px;
     }
 }
