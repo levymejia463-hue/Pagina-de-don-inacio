@@ -9,6 +9,19 @@ body{
     font-family: sans-serif;
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #111;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #fabc74;
+  border-radius: 10px;
+}
+
 
 header{
     align-items: start;
@@ -166,7 +179,7 @@ nav ul li a{
 }
 
 .hero-text.active .hero-paragraph {
-  max-height: 1000px;
+  max-height: 2000px;
 }
 
 .hero-toggle {
@@ -603,14 +616,17 @@ textarea{
 }
 
 .popup img{
-    width: 100%;
-    position: relative;
-    left: 0;
+    width: 50%;
 }
 
 .cart {
     padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
 
 .close-btn {
     position: absolute;
@@ -715,17 +731,24 @@ textarea{
     }
 
     .sub-header{
-        height: 100px;
+        height: 70px;
         justify-content: center;
     }
 
     .logo1{
+        height: 300px;
         width: 100%;
     }
 
     .logo1 img{
     height: auto;
     max-width: 50%;
+    }
+
+    .card-item{
+        min-width: none;
+        width:30px;
+        height: 320px;
     }
 
     .chef{
@@ -740,6 +763,10 @@ textarea{
     .present-card{
         height: 7vh;
         width: 25vh;
+    }
+
+    .cart{
+        flex-direction: column;
     }
 
     .contact{
