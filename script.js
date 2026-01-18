@@ -35,3 +35,12 @@ next.addEventListener("click", () => {
 prev.addEventListener("click", () => {
   slider.scrollLeft -= 320;
 });
+
+
+const heroText = document.querySelector(".hero-text");
+const heroToggle = document.querySelector(".hero-toggle");
+
+heroToggle.addEventListener("click", () => {
+  heroText.classList.toggle("active");
+});
+
