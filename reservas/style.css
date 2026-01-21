@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fabc74;
+    font-family: "Inria Serif", serif;
+}
+
+.sub-header h2{
+    font-size: 0.7rem;
+    text-align: center;
+    font-family: "Inria Serif", serif;
+    color: #ffffff;
+}
+
+.sub-header{
+    background: #00000060;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    margin-left: 50px;
+}
+
+.menu-ham{
+    position: absolute;
+    background: #00000060;
+    backdrop-filter: blur(0.4rem);
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 300px;
+    top: 0;
+    right: -500px;
+    transition: 0.1s ease-out;
+    z-index: 999;
+}
+
+.openMenu.remove{
+    display: none;
+}
+
+.btn-close{
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: #fff;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+nav{
+    width: 100%;
+    align-items: center;
+    
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li{
+    height: 20px;
+    text-align: center;
+    font-family: "Inria Serif", serif;
+    font-size: 1.6rem;
+    margin: 10px;
+}
+
+nav ul li:hover a{
+    color: #000;
+    background-color: #fff;
+}
+
+nav ul li a{
+    text-decoration: none;
+    display: block;
+    width: 200px;
+    color: #fff;
+    border-radius: 20px;
+    transition: 0.5s;
+   
+}
+
+.menu-ham.actives{
+    display: flex;
+    right: 0;
+}
+
+.openMenu{
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    border: none;
+    background: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.openMenu span{
+    font-size: 2rem;
+}
+
+.br {
+    position: absolute;
+    width: 140px;
+    height: 30px;
+    background:none;
+    cursor: pointer;
+    color: #fff;
+    border: 2px solid#fff;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+
+.br:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.btns-menu{
+    right: 290px;
+}
+
+.btns-reservar{
+    right: 120px;
+}
