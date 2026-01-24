@@ -11,7 +11,7 @@
 
     <div class="sub-header" id="sub-header">
         <div class="logo">
-                <h2>Restaurante de <br><span style="font-size: 1.2rem;">don inacio</span></h2>
+                <h1 onclick="volver()";>Restaurante de <br><span style="font-size: 1.1rem;">don inacio</span></h1>
             </div>
 
             <button class="br btns-menu">ver menu</button>
@@ -29,6 +29,92 @@
                 </nav>
             </div>
             <button class="openMenu" id="openMenu"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+
+
+    <div class="container">
+        <div class="card">
+            <div class="header1">
+                <div class="icon">
+                    <img src="../extern-arch/logo.png" alt="">
+                </div>
+                    <h1>haz tu reservación</h1>
+                    <p>comopleta el formulario</p>
+            </div>    
+            
+            <div class="form-container">
+
+                <div class="form-group">
+                    <label for="fecha">
+                        fecha <span class="required">*</span>
+                    </label>
+                    <input 
+                    type="date"
+                    id="fecha"
+                    name="fecha"
+                    required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="hora">
+                        hora <span class="required">*</span>
+                    </label>
+
+                    <select name="hora" id="hora" required>
+                        <option value="">seleccione la hora</option>
+                        <option value="6:00 PM">6:00 PM</option>
+                        <option value="6:30 PM">6:30 PM</option>
+                        <option value="7:00 PM">7:00 PM</option>
+                        <option value="7:30 PM">7:30 PM</option>
+                        <option value="8:00 PM">8:00 PM</option>
+                        <option value="8:30 PM">8:30 PM</option>
+                        <option value="9:00 PM">9:00 PM</option>
+                        <option value="9:30 PM">9:30 PM</option>
+                        <option value="10:00 PM">10:00 PM</option>
+                    </select>
+                </div>
+
+                <!-- cantidad de persona -->
+
+                <div class="form-group">
+                    <label for="personas">
+                        Cantidad de personas <span class="required">*</span>
+                    </label>
+                    <input 
+                    type="number"
+                    id="persona"
+                    name="persona"
+                    min="1"
+                    max="5"
+                    placeholder="Ej: 4"
+                    required
+                    >
+                </div>
+
+                <!--campo del mensaje es opcional para la gente-->
+
+                <div class="form-group">
+                    <label for="mensaje">
+                        mensaje adicional(opcional)
+                    </label>
+                    <textarea 
+                    name="mensaje" 
+                    id="mensaje"
+                    rows="4"
+                    placeholder="algo en especifico"
+                    ></textarea>
+                </div>
+
+                <!--wtf el boton!!!!!!!-->
+
+                <button onclick="enviarWhatsApp()" class="btn-submit">
+                    enviar a Whatsapp
+                </button>
+            </div>
+
+        </div>
     </div>
     
 
