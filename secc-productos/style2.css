@@ -1,11 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+/*header*/
+
+.sub-header{
+    background: #00000060;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
 }
 
+.sub-header h1{
+    font-size: 0.7rem;
+    text-align: center;
+    font-family: "Inria Serif", serif;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.logo{
+    margin-left: 50px;
+}
+
+.menu-ham{
+    position: absolute;
+    background: #00000060;
+    backdrop-filter: blur(0.4rem);
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 300px;
+    top: 0;
+    right: -500px;
+    transition: 0.1s ease-out;
+    z-index: 999;
+}
+
+
+.openMenu.remove{
+    display: none;
+}
+
+.btn-close{
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: #fff;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+nav{
+    width: 100%;
+    align-items: center;
+    
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li{
+    height: 20px;
+    text-align: center;
+    font-family: "Inria Serif", serif;
+    font-size: 1.6rem;
+    margin: 10px;
+}
+
+nav ul li:hover a{
+    color: #000;
+    background-color: #fff;
+}
+
+nav ul li a{
+    text-decoration: none;
+    display: block;
+    width: 200px;
+    color: #fff;
+    border-radius: 20px;
+    transition: 0.5s;
+   
+}
+
+.menu-ham.actives{
+    display: flex;
+    right: 0;
+}
+
+.openMenu{
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    border: none;
+    background: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.openMenu span{
+    font-size: 2rem;
+}
+
+.br {
+    position: absolute;
+    width: 140px;
+    height: 30px;
+    background:none;
+    cursor: pointer;
+    color: #fff;
+    border: 2px solid#fff;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+
+.br:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.btns-menu{
+    right: 290px;
+}
+
+.btns-reservar{
+    right: 120px;
+}
+
+/*slider*/
 .container {
-    height: 420px;
+    height: min(50vh, 420px);
     width: 100%;
     display: grid;
     place-content: center;
@@ -40,55 +187,303 @@
 .slider ul {
     display: flex;
     padding: 0;
-    width: 400%;
     height: 100%;
-    animation: slider 20s infinite;
+    animation: slider 16s infinite;
+    animation-timing-function: ease-in-out;
+    will-change: transform;
+}
+
+.slider ul li{
+    flex: 0 0 100%;
+    list-style: none;
 }
 
 .slider ul img{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     filter: brightness(40%);
 }
 
 @keyframes slider {
-    0% {margin-left: 0;}
-    20% {margin-left: 0;}
+    0% { transform: translateX(0%); }
+    20% { transform: translateX(0%); }
 
-    25% {margin-left: -100%;}
-    45% {margin-left: -100%;}
+    25% { transform: translateX(-100%); }
+    45% { transform: translateX(-100%); }
 
-    50% {margin-left: -200%;}
-    70% {margin-left: -200%;}
+    50% { transform: translateX(-200%); }
+    70% { transform: translateX(-200%); }
 
-    75% {margin-left: -300%;}
-    100% {margin-left: -300%;}
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(-300%); }
 }
 
 
 /*header para navegar*/
 
 .pre-header {
-    margin-top: 420px;
-    width: 100%;
-    height: 50px;
-    background-color: #d8d8d8;
+    /* hidden to the right: only a narrow tab remains visible; slides left on hover */
+    position: fixed;
+    top: calc(min(30vh, 420px) + 10px);
+    right: -240px; /* hide most of it off-screen to the right */
+    width: 280px;
+    background-color: rgba(216,216,216,0.95);
     display: flex;
-    justify-content: space-between;
-    padding: 0px 60px 0px 60px;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 8px;
+    border-radius: 12px;
+    z-index: 999;
+    transition: right 0.25s ease; /* slide effect */
+}
+
+.pre-header:hover,
+.pre-header:focus-within {
+    right: 20px; /* slide left to reveal content */
+}
+
+/* vertical left tab inside pre-header */
+.pre-tab {
+    position: absolute;
+    left: 8px; /* place near left edge of the pre-header */
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-weight: 600;
+    background: transparent;
+    padding: 6px 4px;
+    border-radius: 6px;
+    color: #000;
+    pointer-events: none; /* clicks should pass to links */
+}
+
+/* hide vertical tab on small screens where pre-header becomes horizontal */
+@media (max-width: 768px) {
+    .pre-tab { display: none; }
+    /* keep a high z-index so pre-header sits above most elements */
+    .pre-header{z-index: 1005;}
 }
 
 .pre-header li{
+    align-items: center;
+    display: flex;
     margin: 20px;
     list-style-type: none;
+}
+
+.pre-header li{
+    margin: 6px 0;
 }
 
 .pre-header li a {
     text-decoration: none;
     color: #000;
-    transition: 0.3s ease;
+    font-size: 0.95rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: 0.2s ease;
+    display: block;
 }
 
 .pre-header li a:hover{
     color: #eb922d;
 }
 
+/* On small screens, show pre-header as a fixed top horizontal bar so it's above the slider */
+@media (max-width: 768px) {
+    .pre-header {
+        /* Place the pre-header just below the slider on small screens */
+        position: absolute;
+        top: calc(min(50vh, 420px) + 10px);
+        left: 8px;
+        right: 8px;
+        transform: none;
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        margin: 0;
+        border-radius: 12px;
+        background-color: rgba(255,255,255,0.97);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        z-index: 0;
+    }
+
+    .br{
+        display: none;
+    }
+    .pre-header li { margin: 0 6px; }
+    .pre-header li a { font-size: 0.98rem; padding: 6px 8px; }
+
+    /* Ensure slider and other content sit behind the fixed pre-header */
+    .container { z-index: 0; }
+    .slider { position: relative; z-index: 0; }
+
+    /* Make sure the mobile menu button stays above the pre-header */
+    .openMenu { z-index: 1010; }
+
+    /* Leave enough vertical space so content doesn't hide under the fixed pre-header */
+    /* Add space for slider + pre-header so content doesn't overlap */
+    
+
+    /* Ensure the first heading after slider isn't hidden */
+    #natural, .h11 { margin-top: 8px; padding-top: 6px; }
+
+    /* Disable the desktop hover slide on mobile: keep pre-header stable */
+    .pre-header:hover,
+    .pre-header:focus-within {
+        right: 8px;
+        transform: none;
+    }
+
+    .container1{
+        margin-top: 30vh;
+    }
+}
+/*detalles*/
+
+.detalles{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    background-color: #fc2525;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/*los productos*/
+
+.detalles{
+    position: fixed;
+    left: -400px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+    background-color: #fff;
+    border-radius: 20px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+.detalles-nombre{
+    font-size: 1.9rem;
+}
+
+.detalles-categoria{
+    color: #575757;
+    font-size: 1.2rem;
+}
+
+.detalles-descripcion{
+    font-size: 1rem;
+    height: 100px;
+    overflow: hidden scroll;
+}
+
+.detalles-precio {
+    margin-top: 15px;
+    font-size: 1.3rem;
+}
+
+.btn-comprar{
+    width: 300px;
+    height: 50px;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    background-color: #ffb25a;
+    border-radius: 20px;
+}
+
+.btn-comprar:hover{
+    background-color: #f8c385;
+}
+
+.textos {
+    padding: 20px;
+}
+
+.detalles.mostrar {
+    left: 20px;
+}
+
+.container1 {
+            max-width: 2400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 55vh;
+}
+.container1 .h11{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.productos,
+.productos2,
+.productos3,
+.productos4{
+    padding: 40px;
+    display: grid;
+    gap: 24px;
+    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.producto{
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-imagen{
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .container { height: min(45vh, 380px); }
+    .texto h1 { font-size: 2.2rem; }
+    .productos, .productos2, .productos3, .productos4 { gap: 20px; }
+    .producto-imagen { height: 150px; }
+}
+
+@media (max-width: 768px) {
+    .pre-header { padding: 0 20px; }
+    .texto h1 { font-size: 1.8rem; }
+    .productos, .productos2, .productos3, .productos4 { padding: 20px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .producto-imagen { height: 140px; }
+    .menu-ham { width: 100%; height: 100vh; right: -100%; }
+}
+
+@media (max-width: 480px) {
+    .container { height: 40vh; }
+    .texto h1 { font-size: 1.4rem; }
+    .pre-header { flex-direction: column; height: auto; padding: 10px; }
+    .productos, .productos2, .productos3, .productos4 { grid-template-columns: 1fr; padding: 12px; gap: 16px; }
+    .producto-imagen { height: 200px; }
+    .sub-header { height: auto; padding: 10px; }
+}

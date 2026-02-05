@@ -4,18 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
     <title>Document</title>
 </head>
 <body>
 
     <!--header-->
 
+    <div class="sub-header" id="sub-header">
+        <div class="logo">
+                <h1 onclick="volver()";>Restaurante de <br><span style="font-size: 1.1rem;">don inacio</span></h1>
+            </div>
+
+            <button class="br btns-menu">ver menu</button>
+            <button class="br btns-reservar" onclick="window.location.href='../reservas/index.html'">reservar</button>
+            
+            <div class="menu-ham" id="manuham">
+                <button class="btn-close" id="close"> X </button>
+                <nav>
+                    <ul>
+                        <li><a href="#">inicio</a></li>
+                        <li><a href="#">sobre nosotros</a></li>
+                        <li><a href="#">menu</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="/reservas/index.html">reservas</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <button class="openMenu" id="openMenu"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+
+
     <!--slider-->
     <div class="container">
         <div class="slider">
             <ul>
                 <li><img src="../extern-arch/paisaje-portada2.webp" alt=""></li>
-                <li><img src="../extern-arch/paisaje-portada2.webp" alt=""></li>
+                <li><img src="../extern-arch/portada.png" alt=""></li>
                 <li><img src="../extern-arch/paisaje-portada2.webp" alt=""></li>
                 <li><img src="../extern-arch/paisaje-portada2.webp" alt=""></li>
             </ul>
@@ -26,11 +51,962 @@
         </div>
     </div>
 
-    <div class="pre-header">
-            <li><a href="#">PRODUCTO</a></li>
-            <li><a href="#">PRODUCTO</a></li>
-            <li><a href="#">PRODUCTO</a></li>
-            <li><a href="#">PRODUCTO</a></li>
+        <div class="pre-header">
+            <div class="pre-tab">NAVEGAR</div>
+            <li><a href="#natural">Natural</a></li>
+            <li><a href="#em.curados">Embutidos curados</a></li>
+            <li><a href="#em-cocidos">Embutidos cocidos</a></li>
+            <li><a href="#salchichas">Salchichas frescas</a></li>
+            <li><a href="#">vinos</a></li>
+        </div>
+
+    <!--desvergue universal-->
+        <!--la bendita ventana flotante-->
+    <div class="container1">
+        <div class="detalles" id="detallesDelProducto">
+            <button class="btn-close" onclick="cerrarDetalles()">x</button>
+        </div>
+
+        <!--los jodidos prductos-->
+        <h1 id="natural" class="h11">NATURAL</h1>
+        <div class="productos">
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/0.jpg"
+                data-nombre="Mermelada de Zanahoria con Jengibre y Canela"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada artesanal de zanahoria elaborada con zanahorias frescas, jengibre y canela, cocida lentamente para concentrar sus aromas y obtener una textura untuosa. Perfecta en tostadas, con quesos suaves o como glaseado ligero para carnes. Presentación 250g; conservar en frío tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/0.jpg" alt="Mermelada de Zanahoria" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Zanahoria con Jengibre y Canela</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/1.jpg"
+                data-nombre="Mermelada de Tomate con Albahaca"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de tomate elaborada con tomates maduros y albahaca fresca, con un equilibrio entre acidez y dulzor. Recomendable para bruschettas, tablas de quesos y como acompañamiento de platos mediterráneos. Presentación 250g; conservar en frío tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/1.jpg" alt="Mermelada de Tomate" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Tomate con Albahaca</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/2.jpg"
+                data-nombre="Mermelada de Remolacha con Jengibre y Limón"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de remolacha con jengibre y limón, que aporta un sabor terroso con toques cítricos y un ligero picor del jengibre. Ideal para combinar con quesos curados, ensaladas y platos vegetarianos. Presentación 250g; refrigerar después de abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/2.jpg" alt="Mermelada de Remolacha" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Remolacha con Jengibre y Limón</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/3.jpg"
+                data-nombre="Mermelada de Repollo con Cereza y Tomillo"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de repollo con cereza y tomillo: una mezcla inesperada entre lo dulce y lo herbal, perfecta para añadir contraste a platos salados, quesos y ensaladas creativas. Presentación 250g; conservar en frío tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/3.jpg" alt="Mermelada de Repollo" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Repollo con Cereza y Tomillo</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/4.jpg"
+                data-nombre="Mermelada de Limón con Manzana y Pimienta Cayena"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de limón y manzana con un sutil toque picante de pimienta cayena. Fresca y brillante, sirve para postres, tostadas o para dar un punto ácido-dulce a platos de pescado y aves. Presentación 250g; conservar en frío tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/4.jpg" alt="Mermelada de Limón" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Limón con Manzana y Pimienta Cayena</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/5.jpg"
+                data-nombre="Mermelada de Chile Dulce con Pimienta Cayena"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de chile dulce con pimienta cayena: combina dulzor afrutado con un calor gradual, ideal para acompañar carnes a la parrilla, quesos fuertes y como ingrediente en salsas. Presentación 250g; conservar en frío tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/5.jpg" alt="Mermelada de Chile Dulce" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Chile Dulce con Pimienta Cayena</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/6.jpg"
+                data-nombre="Mermelada de Chile Dulce con Chocolate Oscuro"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de chile dulce con chocolate oscuro: una fusión entre el dulzor y notas amargas del chocolate, con un fondo picante moderado. Perfecta en postres, sobre pan tostado o para maridar con quesos azules. Presentación 250g; refrigerar tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/6.jpg" alt="Chile Dulce con Chocolate" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Chile Dulce con Chocolate Oscuro</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/7.jpg"
+                data-nombre="Mermelada de Chile Dulce con Aceitunas Negras"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de chile dulce con aceitunas negras: mezcla salina y dulce, pensada para tablas de quesos, tapas y para dar un contraste único a sándwiches gourmet. Presentación 250g; conservar en frío tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/7.jpg" alt="Chile Dulce con Aceitunas" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Chile Dulce con Aceitunas Negras</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/8.jpg"
+                data-nombre="Mermelada de Cebolla Morada con Jengibre y Pimienta Negra"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de cebolla morada con jengibre y pimienta negra: caramelizada y especiada, aporta profundidad y dulzor complejo a hamburguesas, quesos y platos de carne. Presentación 250g; refrigerar después de abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/8.jpg" alt="Cebolla Morada" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Cebolla Morada con Jengibre y Pimienta Negra</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/9.jpg"
+                data-nombre="Mermelada de Cebolla con Flor de Jamaica y Naranja"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de cebolla con flor de jamaica y naranja: combinación cítrica y floral que equilibra la dulzura de la cebolla; ideal con carnes, quesos y como complemento en entradas. Presentación 250g; conservar en frío tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/9.jpg" alt="Cebolla con Jamaica" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Cebolla con Flor de Jamaica y Naranja</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/10.jpg"
+                data-nombre="Mermelada de Cebolla Blanca con Vino de Oporto y Bacon Ahumado"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de cebolla blanca con vino de Oporto y bacon ahumado: rica y compleja, con notas dulces, afrutadas y ahumadas; indicada para acompañar quesos curados, foie y platos de caza. Presentación 250g; conservar en frío tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/10.jpg" alt="Cebolla Blanca con Oporto" class="producto-imagen">
+                <div class="categoria-pre">mermeladas</div>
+                <div class="nombre"><h2>Mermelada de Cebolla Blanca con Vino de Oporto y Bacon Ahumado</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/11.jpg"
+                data-nombre="Mermelada Gourmet de Camote con Apio y Vino Tinto"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada gourmet de camote con apio y vino tinto: textura aterciopelada y sabor profundo, ideal para tostas, rellenos y acompañamiento de platos otoñales. Presentación 250g; refrigerar tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/11.jpg" alt="Camote Gourmet" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada Gourmet de Camote con Apio y Vino Tinto</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/12.jpg"
+                data-nombre="Mermelada de Calabaza con Nueces y Canela"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada de calabaza con nueces y canela: dulce especiada con trozos de nuez que aporta textura; perfecta para desayunos, postres y combinaciones saladas-dulces. Presentación 250g; conservar en frío tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/12.jpg" alt="Calabaza con Nueces" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada de Calabaza con Nueces y Canela</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/13.jpg"
+                data-nombre="Mermelada Gourmet de Albaricoque con Romero"
+                data-gategoria="mermeladas"
+                data-descripcion="Mermelada gourmet de albaricoque infusionada con romero: mezcla de fruta madura y toques herbales que funciona muy bien con quesos de cabra, carnes blancas y repostería. Presentación 250g; refrigerar tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/13.jpg" alt="Albaricoque con Romero" class="producto-imagen">
+                <div class="nombre"><h2>Mermelada Gourmet de Albaricoque con Romero</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/14.jpg"
+                data-nombre="Pasta de Tomate Gourmet — Receta Portuguesa"
+                data-gategoria="pastas"
+                data-descripcion="Pasta de tomate gourmet con receta portuguesa: concentrado de tomates seleccionados y especias tradicionales, ideal como base de salsas, guisos y para realzar recetas mediterráneas. Presentación 270g; conservar en lugar fresco y seco."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/14.jpg" alt="Pasta de Tomate Gourmet" class="producto-imagen">
+                <div class="nombre"><h2>Pasta de Tomate Gourmet — Receta Portuguesa</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/15.jpg"
+                data-nombre="Pasta de Pimiento Dulce Ahumado Gourmet — Amalia Inacio"
+                data-gategoria="pastas"
+                data-descripcion="Pasta de pimiento dulce ahumado: sabor profundo y ahumado, perfecta para aderezos, marinados y para añadir cuerpo a salsas y cremas. Presentación 200g; conservar en lugar fresco y seco."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/15.jpg" alt="Pasta de Pimiento" class="producto-imagen">
+                <div class="nombre"><h2>Pasta de Pimiento Dulce Ahumado Gourmet — Amalia Inacio</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/16.jpg"
+                data-nombre="That Fire Oil (Aceite Oriental) — Receta Portuguesa"
+                data-gategoria="aceites"
+                data-descripcion="That Fire Oil: aceite oriental con infusión de especias y chiles que aporta un golpe picante en pequeñas dosis; ideal para terminar platos, aliñar ensaladas y acompañar platos asiáticos y mediterráneos. Presentación 250ml; conservar en lugar fresco y oscuro."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/16.jpg" alt="That Fire Oil" class="producto-imagen">
+                <div class="nombre"><h2>That Fire Oil (Aceite Oriental) — Receta Portuguesa</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/17.jpg"
+                data-nombre="Chilli Oil (Aceite Oriental) — Receta Portuguesa"
+                data-gategoria="aceites"
+                data-descripcion="Chilli Oil: aceite infusionado con chiles y especias orientales, con aroma intenso y picor balanceado. Usar para aliñar, en salsas y como toque final. Presentación 250ml; conservar en lugar fresco y oscuro."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/17.jpg" alt="Chilli Oil" class="producto-imagen">
+                <div class="nombre"><h2>Chilli Oil (Aceite Oriental) — Receta Portuguesa</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/18.jpg"
+                data-nombre="Piri·Piri Habanero Salsa Picante"
+                data-gategoria="salsas"
+                data-descripcion="Piri·Piri Habanero: salsa picante artesanal hecha con habanero y especias, de sabor afrutado y potente picor. Recomendada en carnes, marinados y para quienes buscan intensidad. Presentación 200ml; refrigerar tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/18.jpg" alt="Piri Piri Habanero" class="producto-imagen">
+                <div class="nombre"><h2>Piri·Piri Habanero Salsa Picante</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/19.jpg"
+                data-nombre="Piri·Piri Salsa Portuguesa — Impermo"
+                data-gategoria="salsas"
+                data-descripcion="Piri·Piri Portuguesa — Impermo: receta tradicional portuguesa con equilibrio entre acidez y picante; perfecta para marinar aves, acompañar mariscos y dar carácter a guisos. Presentación 200ml; refrigerar tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/19.jpg" alt="Piri Piri Impermo" class="producto-imagen">
+                <div class="nombre"><h2>Piri·Piri Salsa Portuguesa — Impermo</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/20.jpg"
+                data-nombre="Piri·Piri Salsa Portuguesa"
+                data-gategoria="salsas"
+                data-descripcion="Piri·Piri tradicional: salsa clásica con notas cítricas y picantes, versátil en la cocina para adobos, salsas y como condimento de mesa. Presentación 200ml; refrigerar tras abrir."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/20.jpg" alt="Piri Piri" class="producto-imagen">
+                <div class="nombre"><h2>Piri·Piri Salsa Portuguesa</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/21.jpg"
+                data-nombre="Limoncello 250ml"
+                data-gategoria="licores"
+                data-descripcion="Limoncello 250ml: licor artesanal de limón con aroma brillante y final dulce, elaborado en lotes pequeños. Excelente para digestivos y repostería. Mantener en un lugar fresco; servir frío."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/21.jpg" alt="Limoncello" class="producto-imagen">
+                <div class="nombre"><h2>Limoncello 250ml</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/fotos de productos/22.jpg"
+                data-nombre="Limoncelli 250ml"
+                data-gategoria="licores"
+                data-descripcion="Limoncelli 250ml: versión premium del clásico licor de limón, con extracción de cáscaras y reposo controlado para mayor suavidad y aroma. Ideal como digestivo y en cócteles. Mantener en lugar fresco; servir frío."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/fotos de productos/22.jpg" alt="Limoncelli" class="producto-imagen">
+                <div class="nombre"><h2>Limoncelli 250ml</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+
+        </div>
+
+        <h1 id="em.curados" class="h12">Embutidos curados</h1>
+        <div class="productos2">
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/1.png"
+                data-nombre="Salchichón Familia Inacio"
+                data-categoria="embutido curado"
+                data-descripcion="50% cerdo, 30% búfalo, 20% cordero. Pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/1.png" alt="Salchichón Familia Inacio" class="producto-imagen">
+                <div class="nombre"><h2>Salchichón Familia Inacio</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/2.png"
+                data-nombre="Salchichón al Ajo Fresco"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo con ajo fresco. Presentación: mitad o entero."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/2.png" alt="Salchichón al Ajo Fresco" class="producto-imagen">
+                <div class="nombre"><h2>Salchichón al Ajo Fresco</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/3.png"
+                data-nombre="Salamella al Ajo Fresco"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo con ajo fresco. Pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/3.png" alt="Salamella al Ajo Fresco" class="producto-imagen">
+                <div class="nombre"><h2>Salamella al Ajo Fresco</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/4.png"
+                data-nombre="Spianata"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo. Presentación: mitad o pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/4.png" alt="Spianata" class="producto-imagen">
+                <div class="nombre"><h2>Spianata</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/5.png"
+                data-nombre="Spianata Picante"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo, versión picante. Presentación: mitad o entero."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/5.png" alt="Spianata Picante" class="producto-imagen">
+                <div class="nombre"><h2>Spianata Picante</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/6.png"
+                data-nombre="Pancetta Ahumada Pimienta Negra"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo ahumado con pimienta. Pieza entera o trocitos 500g."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/6.png" alt="Pancetta Ahumada Pimienta Negra" class="producto-imagen">
+                <div class="nombre"><h2>Pancetta Ahumada Pimienta Negra</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/7.png"
+                data-nombre="Pancetta Arrollada Pimienta Negra"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo arrollado con pimienta. Mitad, entero o loncheado."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/7.png" alt="Pancetta Arrollada Pimienta Negra" class="producto-imagen">
+                <div class="nombre"><h2>Pancetta Arrollada Pimienta Negra</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/8.png"
+                data-nombre="Paio Curado Ahumado"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo curado ahumado. Pieza entera o loncheado 250g."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/8.png" alt="Paio Curado Ahumado" class="producto-imagen">
+                <div class="nombre"><h2>Paio Curado Ahumado</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/9.png"
+                data-nombre="Speck Ahumado Pimienta Negra"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo ahumado con pimienta. Mitad, entero o loncheado."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/9.png" alt="Speck Ahumado Pimienta Negra" class="producto-imagen">
+                <div class="nombre"><h2>Speck Ahumado Pimienta Negra</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/10.png"
+                data-nombre="Salamella Italiana Picante"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo, versión picante italiana. Pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/10.png" alt="Salamella Italiana Picante" class="producto-imagen">
+                <div class="nombre"><h2>Salamella Italiana Picante</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/11.png"
+                data-nombre="Chorizo Italiano"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo estilo italiano. Mitad o pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/11.png" alt="Chorizo Italiano" class="producto-imagen">
+                <div class="nombre"><h2>Chorizo Italiano</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/12.png"
+                data-nombre="Chorizo Italiano Picante"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo picante italiano. Mitad o pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/12.png" alt="Chorizo Italiano Picante" class="producto-imagen">
+                <div class="nombre"><h2>Chorizo Italiano Picante</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/13.png"
+                data-nombre="Salame Pimienta Negra"
+                data-categoria="embutido curado"
+                data-descripcion="80% cerdo, 20% res con pimienta. Mitad, entero o loncheado."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/13.png" alt="Salame Pimienta Negra" class="producto-imagen">
+                <div class="nombre"><h2>Salame Pimienta Negra</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/14.png"
+                data-nombre="Salchichón Pimienta Negra"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo con pimienta negra. Mitad o pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/14.png" alt="Salchichón Pimienta Negra" class="producto-imagen">
+                <div class="nombre"><h2>Salchichón Pimienta Negra</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/15.png"
+                data-nombre="Salamella Pimienta Negra"
+                data-categoria="embutido curado"
+                data-descripcion="80% cerdo, 20% res con pimienta. Pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/15.png" alt="Salamella Pimienta Negra" class="producto-imagen">
+                <div class="nombre"><h2>Salamella Pimienta Negra</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/16.png"
+                data-nombre="Salchichón Pimienta Negra (Pimienta Externa)"
+                data-categoria="embutido curado"
+                data-descripcion="80% cerdo, 20% res con pimienta externa. Mitad o entero."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/16.png" alt="Salchichón Pimienta Negra (Pimienta Externa)" class="producto-imagen">
+                <div class="nombre"><h2>Salchichón Pimienta Negra (Pimienta Externa)</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/17.png"
+                data-nombre="Salamella Don Inacio"
+                data-categoria="embutido curado"
+                data-descripcion="100% cordero. Pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/17.png" alt="Salamella Don Inacio" class="producto-imagen">
+                <div class="nombre"><h2>Salamella Don Inacio</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/18.png"
+                data-nombre="Salchichón de Búfalo"
+                data-categoria="embutido curado"
+                data-descripcion="100% búfalo. Mitad o pieza entera."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/18.png" alt="Salchichón de Búfalo" class="producto-imagen">
+                <div class="nombre"><h2>Salchichón de Búfalo</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/19.png"
+                data-nombre="Salamella Toscano"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo estilo toscano. Mitad, entero o loncheado."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/19.png" alt="Salamella Toscano" class="producto-imagen">
+                <div class="nombre"><h2>Salamella Toscano</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/20.png"
+                data-nombre="Lomo de Nuca Pimienta Negra"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo de nuca con pimienta. Mitad, entero o loncheado."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/20.png" alt="Lomo de Nuca Pimienta Negra" class="producto-imagen">
+                <div class="nombre"><h2>Lomo de Nuca Pimienta Negra</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/21.png"
+                data-nombre="Lomo Pimienta Negra"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo con pimienta negra. Mitad, entero o loncheado."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/21.png" alt="Lomo Pimienta Negra" class="producto-imagen">
+                <div class="nombre"><h2>Lomo Pimienta Negra</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/22.png"
+                data-nombre="Lomo Paprika"
+                data-categoria="embutido curado"
+                data-descripcion="100% cerdo con paprika. Mitad, entero o loncheado."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/22.png" alt="Lomo Paprika" class="producto-imagen">
+                <div class="nombre"><h2>Lomo Paprika</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs embutidos curados/23.png"
+                data-nombre="Bresaola"
+                data-categoria="embutido curado"
+                data-descripcion="100% res curada. Mitad, entero o loncheado."
+                data-precio="1.00"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs embutidos curados/23.png" alt="Bresaola" class="producto-imagen">
+                <div class="nombre"><h2>Bresaola</h2></div>
+                <div class="precio"><h3>$1.00</h3></div>
+            </div>
+
+
+        </div>
+
+        <h1 id="em-cocidos" class="h12">Embutidos cocidos</h1>
+        <div class="productos3">
+
+            <div class="producto"
+                data-imagen="../extern-arch/embutidos cocidos/1.png"
+                data-nombre="Bacon Ahumado"
+                data-categoria="carnes ahumadas"
+                data-descripcion="Bacon de cerdo 100% natural, ahumado lentamente para un sabor intenso y aroma profundo. Disponible en pieza entera, trocitos de 500 g o lonchas de 250 g/500 g. Ideal para desayunos, guisos y acompañamientos."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/embutidos cocidos/1.png" alt="Bacon Ahumado" class="producto-imagen">
+                <div class="nombre"><h2>Bacon Ahumado</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/embutidos cocidos/2.png"
+                data-nombre="Costilla Ahumada"
+                data-categoria="carnes ahumadas"
+                data-descripcion="Costilla de cerdo ahumada con un proceso tradicional que realza su jugosidad y sabor. Disponible en pieza entera o packs de 2 unidades. Perfecta para asar, hornear o preparar a la parrilla."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/embutidos cocidos/2.png" alt="Costilla Ahumada" class="producto-imagen">
+                <div class="nombre"><h2>Costilla Ahumada</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/embutidos cocidos/3.png"
+                data-nombre="Jamón Cocido al Natural"
+                data-categoria="embutidos cocidos"
+                data-descripcion="Jamón cocido 100% cerdo, preparado de manera tradicional sin ahumar ni adición de hierbas. Disponible en pieza entera (4–6 kg) o en lonchas de 250 g/500 g. Sabor suave y textura jugosa, ideal para sándwiches y ensaladas."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/embutidos cocidos/3.png" alt="Jamón Cocido al Natural" class="producto-imagen">
+                <div class="nombre"><h2>Jamón Cocido al Natural</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/embutidos cocidos/4.png"
+                data-nombre="Jamón Cocido con Hierbas Aromáticas"
+                data-categoria="embutidos cocidos"
+                data-descripcion="Jamón cocido de cerdo enriquecido con una selección de hierbas aromáticas que le aportan un toque mediterráneo. Disponible en pieza entera (4–6 kg) o en lonchas de 250 g/500 g. Perfecto para tablas y platos gourmet."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/embutidos cocidos/4.png" alt="Jamón Cocido con Hierbas Aromáticas" class="producto-imagen">
+                <div class="nombre"><h2>Jamón Cocido con Hierbas Aromáticas</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/embutidos cocidos/5.png"
+                data-nombre="Jamón Cocido Ahumado"
+                data-categoria="embutidos cocidos"
+                data-descripcion="Jamón cocido de cerdo con un delicado proceso de ahumado que aporta un sabor intenso y característico. Disponible en pieza entera (4–6 kg) o en lonchas de 250 g/500 g. Ideal para platos fríos, cocina creativa y desayunos."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/embutidos cocidos/5.png" alt="Jamón Cocido Ahumado" class="producto-imagen">
+                <div class="nombre"><h2>Jamón Cocido Ahumado</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+        </div>
+
+        <h1 id="salchichas" class="h12">Salchichas frescas</h1>
+        <div class="productos4">
+
+            <div class="producto"
+                data-imagen="../extern-arch/salchichas-imgs/1.png"
+                data-nombre="Salchicha Montaña con Aceitunas Negras"
+                data-categoria="salchichas"
+                data-descripcion="Salchicha gourmet elaborada con 60% res y 40% cerdo, infusionada con aceitunas negras que aportan un sabor intenso y aromático. Disponible en packs de 6 a 9 unidades. Ideal para parrillas y guisos."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/salchichas-imgs/1.png" alt="Salchicha Montaña con Aceitunas Negras" class="producto-imagen">
+                <div class="nombre"><h2>Salchicha Montaña con Aceitunas Negras</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/salchichas-imgs/2.png"
+                data-nombre="Salchicha de Búfalo"
+                data-categoria="salchichas"
+                data-descripcion="Salchicha 100% búfalo, con un sabor robusto y textura jugosa, baja en grasa y alta en proteínas. Disponible en packs de 6 a 9 unidades. Excelente opción para asados y platos gourmet."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/salchichas-imgs/2.png" alt="Salchicha de Búfalo" class="producto-imagen">
+                <div class="nombre"><h2>Salchicha de Búfalo</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/salchichas-imgs/3.png"
+                data-nombre="Salchicha Italiana"
+                data-categoria="salchichas"
+                data-descripcion="Salchicha tradicional italiana hecha 100% de cerdo, sazonada con especias clásicas como hinojo y pimienta. Disponible en packs de 6 a 9 unidades. Perfecta para pastas, pizzas y a la parrilla."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/salchichas-imgs/3.png" alt="Salchicha Italiana" class="producto-imagen">
+                <div class="nombre"><h2>Salchicha Italiana</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/salchichas-imgs/4.png"
+                data-nombre="Salchicha Italiana Picante"
+                data-categoria="salchichas"
+                data-descripcion="Variante picante de la salchicha italiana 100% cerdo, con un toque de chile o pimienta roja que realza su carácter. Disponible en packs de 6 a 9 unidades. Ideal para quienes buscan un sabor intenso y especiado."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/salchichas-imgs/4.png" alt="Salchicha Italiana Picante" class="producto-imagen">
+                <div class="nombre"><h2>Salchicha Italiana Picante</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/salchichas-imgs/5.png"
+                data-nombre="Salchicha Merguez"
+                data-categoria="salchichas"
+                data-descripcion="Salchicha de origen norteafricano elaborada 100% con cordero, condimentada con comino, pimentón y ajo. Disponible en packs de 6 a 9 unidades. Tradicionalmente asada, perfecta para cuscús y platos étnicos."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/salchichas-imgs/5.png" alt="Salchicha Merguez" class="producto-imagen">
+                <div class="nombre"><h2>Salchicha Merguez</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/salchichas-imgs/6.png"
+                data-nombre="Salchicha Premium Don Inacio"
+                data-categoria="salchichas"
+                data-descripcion="Salchicha gourmet de cordero 100%, con una mezcla premium de especias seleccionadas. Disponible en packs de 6 a 9 unidades. Producto de alta calidad para ocasiones especiales y parrilladas selectas."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/salchichas-imgs/6.png" alt="Salchicha Premium Don Inacio" class="producto-imagen">
+                <div class="nombre"><h2>Salchicha Premium Don Inacio</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/salchichas-imgs/7.png"
+                data-nombre="Salchicha de Pollo y Vegetales"
+                data-categoria="salchichas"
+                data-descripcion="Salchicha más ligera y saludable elaborada con 60% pollo y 40% vegetales, reducida en grasa y con fibra añadida. Disponible en packs de 6 a 9 unidades. Ideal para dietas equilibradas, niños y asados ligeros."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/salchichas-imgs/7.png" alt="Salchicha de Pollo y Vegetales" class="producto-imagen">
+                <div class="nombre"><h2>Salchicha de Pollo y Vegetales</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/salchichas-imgs/8.png"
+                data-nombre="Salchicha La Tica Ahumada"
+                data-categoria="salchichas"
+                data-descripcion="Salchicha típica 100% cerdo con ahumado natural que le da un sabor profundo y aroma característico. Disponible en packs de 6 a 9 unidades. Versátil para desayunos, parrillas y platos tradicionales."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/salchichas-imgs/8.png" alt="Salchicha La Tica Ahumada" class="producto-imagen">
+                <div class="nombre"><h2>Salchicha La Tica Ahumada</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/salchichas-imgs/9.png"
+                data-nombre="Salchicha La Tica Ahumada Picante"
+                data-categoria="salchichas"
+                data-descripcion="Variante picante de la salchicha La Tica ahumada, 100% cerdo con un toque de picante que complementa su ahumado. Disponible en packs de 6 a 9 unidades. Para quienes disfrutan los sabores intensos y ahumados con picante."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/salchichas-imgs/9.png" alt="Salchicha La Tica Ahumada Picante" class="producto-imagen">
+                <div class="nombre"><h2>Salchicha La Tica Ahumada Picante</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+        </div>
+
+        <h1 id="salchichas" class="h12">Vinos</h1>
+        <div class="productos4">
+
+            <div class="producto"                
+                data-imagen="../extern-arch/imgs-vinos/1.png"
+                data-nombre="Aceite de Oliva Extra Virgen Orgánico"
+                data-categoria="aceites"
+                data-descripcion="Aceite de oliva extra virgen orgánico de alta pureza con propiedades beneficiosas para la salud. Acidez: 0,2%. Eleva el colesterol HDL, reduce el LDL, beneficia la hipertensión y tiene propiedades antioxidantes. Ideal para cocina gourmet y uso terapéutico."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/1.png" alt="Aceite de Oliva Extra Virgen Orgánico" class="producto-imagen">
+                <div class="nombre"><h2>Aceite de Oliva Extra Virgen Orgánico</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/2.png"
+                data-nombre="Porto Rubí"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Rubí elaborado con uvas Touriga Nacional, Touriga Franca, Tinta Roriz, Tinto Cão y Tinta Barroca. Excelente como aperitivo o digestivo, perfecto para sangría. Puntuaciones: 90 puntos en CellarTracker y 88 en Wine Spectator."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/2.png" alt="Porto Rubí" class="producto-imagen">
+                <div class="nombre"><h2>Porto Rubí</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/3.png"
+                data-nombre="Porto Rubí Reserva Orgánica"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Rubí Reserva Orgánico elaborado con uvas seleccionadas. Perfecto para acompañar postres y maridar con quesos. Excelente como aperitivo o digestivo. Producto orgánico de alta calidad."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/3.png" alt="Porto Rubí Reserva Orgánica" class="producto-imagen">
+                <div class="nombre"><h2>Porto Rubí Reserva Orgánica</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/5.png"
+                data-nombre="Porto"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto clásico elaborado con uvas Touriga Nacional, Touriga Franca, Tinta Roriz, Tinto Cão y Tinta Barroca. Perfecto como digestivo o para incorporar en comidas. Puntuaciones: 92 puntos Robert Parker y 90 puntos Wine & Spirits Magazine."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/5.png" alt="Porto" class="producto-imagen">
+                <div class="nombre"><h2>Porto</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/6.png"
+                data-nombre="Porto Vintage 2015"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Vintage 2015 elaborado con uvas selectas. Perfecto como digestivo o para incorporar en comidas. Puntuación: 90 puntos Robert Parker. Un clásico vintage para ocasiones especiales."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/6.png" alt="Porto Vintage 2015" class="producto-imagen">
+                <div class="nombre"><h2>Porto Vintage 2015</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/7.png"
+                data-nombre="Porto Vintage"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Vintage de alta calidad elaborado con uvas Touriga Nacional, Touriga Franca, Tinta Roriz, Tinto Cão y Tinta Barroca. Excelente como digestivo. Puntuaciones: 93 puntos Wine Enthusiast Magazine y 90 puntos Robert Parker."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/7.png" alt="Porto Vintage" class="producto-imagen">
+                <div class="nombre"><h2>Porto Vintage</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/8.png"
+                data-nombre="Porto Vintage Especial"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Vintage especial con excelentes características. Elaborado con uvas selectas. Perfecto como digestivo. Puntuación destacada: 93 puntos Robert Parker. Un vino de gran elegancia y complejidad."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/8.png" alt="Porto Vintage Especial" class="producto-imagen">
+                <div class="nombre"><h2>Porto Vintage Especial</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/9.png"
+                data-nombre="Porto Colheita 1974 Woodbox"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Colheita 1974 presentado en Woodbox. Elaborado con uvas selectas. Para ocasiones especiales o como regalo único. Excelente digestivo y aperitivo. Un vino histórico con más de 45 años de añejamiento."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/9.png" alt="Porto Colheita 1974 Woodbox" class="producto-imagen">
+                <div class="nombre"><h2>Porto Colheita 1974 Woodbox</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/11.png"
+                data-nombre="Porto Colheita 2007"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Colheita 2007 elaborado con uvas selectas. Perfecto para ocasiones especiales o como regalo único. Excelente digestivo y aperitivo. Puntuación: 93 puntos Robert Parker."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/11.png" alt="Porto Colheita 2007" class="producto-imagen">
+                <div class="nombre"><h2>Porto Colheita 2007</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/13.png"
+                data-nombre="Porto Tawny 20 Años"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Tawny con 20 años de añejamiento. Elaborado con Touriga Franca, Tinta Barroca, Tinta Roriz y Touriga Nacional. Perfecto para acompañar postres. Excelente digestivo y aperitivo. Puntuación: 91 puntos Robert Parker."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/13.png" alt="Porto Tawny 20 Años" class="producto-imagen">
+                <div class="nombre"><h2>Porto Tawny 20 Años</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/14.png"
+                data-nombre="Porto Tawny 40 Años Woodbox"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Tawny con 40 años de añejamiento presentado en Woodbox. Elaborado con viñas viejas. Perfecto para quesos ricos, café o postres. Excelente digestivo y aperitivo. Puntuación: 94 puntos Robert Parker."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/14.png" alt="Porto Tawny 40 Años Woodbox" class="producto-imagen">
+                <div class="nombre"><h2>Porto Tawny 40 Años Woodbox</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/15.png"
+                data-nombre="Porto Reserva Especial Tawny"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Reserva Especial Tawny elaborado con uvas selectas. Perfecto para acompañar postres y maridar con queso. Excelente digestivo. Puntuación: 91 puntos Robert Parker."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/15.png" alt="Porto Reserva Especial Tawny" class="producto-imagen">
+                <div class="nombre"><h2>Porto Reserva Especial Tawny</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/16.png"
+                data-nombre="Porto Tawny"
+                data-categoria="vinos y portos"
+                data-descripcion="Porto Tawny clásico elaborado con uvas selectas. Excelente como aperitivo o digestivo, perfecto para postres y maridar con queso. Ideal para complementar sangrías. Versátil y de gran calidad."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/16.png" alt="Porto Tawny" class="producto-imagen">
+                <div class="nombre"><h2>Porto Tawny</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/24.png"
+                data-nombre="Château Champion Saint-Émilion Grand Cru 2015"
+                data-categoria="vinos tintos"
+                data-descripcion="Château Champion Saint-Émilion Grand Cru 2015. Elaborado con Cabernet Sauvignon, Cabernet Franc y Merlot. Perfecto para carnes rojas, parrilladas y quesos fuertes. Medalla de Oro en el Concurso Féminalise."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/24.png" alt="Château Champion Saint-Émilion Grand Cru 2015" class="producto-imagen">
+                <div class="nombre"><h2>Château Champion Saint-Émilion Grand Cru 2015</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+
+            <div class="producto"
+                data-imagen="../extern-arch/imgs-vinos/25.png"
+                data-nombre="Château Champion Saint-Émilion Grand Cru 2018"
+                data-categoria="vinos tintos"
+                data-descripcion="Château Champion Saint-Émilion Grand Cru 2018. Elaborado con Cabernet Sauvignon, Cabernet Franc y Merlot. Ideal para carnes rojas, parrilladas y quesos fuertes. Medalla de Oro en el Concurso Féminalise."
+                data-precio="--.--"
+                onclick="mostrarDetalles(this)">
+                <img src="../extern-arch/imgs-vinos/25.png" alt="Château Champion Saint-Émilion Grand Cru 2018" class="producto-imagen">
+                <div class="nombre"><h2>Château Champion Saint-Émilion Grand Cru 2018</h2></div>
+                <div class="precio"><h3>$--.--</h3></div>
+            </div>
+        </div>
+
+
+        
+
     </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="script2.js"></script>
 </body>
 </html>

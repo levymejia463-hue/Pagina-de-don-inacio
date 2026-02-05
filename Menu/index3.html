@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mejor Comida Portuguesa - Menú</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <button class="index-button" onclick="toggleIndex()">📑 Índice</button>
+
+    <!-- Modal de Detalles del Plato -->
+    <div class="dish-modal" id="dishModal" onclick="closeDishModalOnBackdrop(event)">
+        <div class="dish-modal-content">
+            <span class="dish-modal-close" onclick="closeDishModal()">&times;</span>
+            
+            <div id="dishModalImageContainer">
+                <!-- La imagen se insertará aquí dinámicamente -->
+            </div>
+
+            <div class="dish-modal-body">
+                <div class="dish-modal-header">
+                    <h2 class="dish-modal-title" id="dishModalTitle">Nombre del Plato</h2>
+                    <div class="dish-modal-price" id="dishModalPrice">$0.00</div>
+                    <span class="dish-modal-category" id="dishModalCategory">Categoría</span>
+                </div>
+
+                <div class="dish-modal-section" id="dishDescriptionSection">
+                    <h3 class="dish-modal-section-title">Descripción</h3>
+                    <p class="dish-modal-description" id="dishModalDescription"></p>
+                </div>
+
+                <div class="dish-modal-section" id="dishInfoSection" style="display: none;">
+                    <h3 class="dish-modal-section-title">Información</h3>
+                    <div class="dish-modal-info-grid" id="dishModalInfo"></div>
+                </div>
+
+                <div class="dish-modal-section" id="dishNotesSection" style="display: none;">
+                    <h3 class="dish-modal-section-title">Nota del Chef</h3>
+                    <div class="dish-modal-notes" id="dishModalNotes"></div>
+                </div>
+
+                <div class="dish-modal-section" id="dishTagsSection" style="display: none;">
+                    <h3 class="dish-modal-section-title">Características</h3>
+                    <div class="dish-modal-tags" id="dishModalTags"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal del Índice -->
+    <div class="index-modal" id="indexModal" onclick="closeIndexOnBackdrop(event)">
+        <div class="index-content">
+            <span class="index-close" onclick="toggleIndex()">&times;</span>
+            <h2 class="index-title">Índice del Menú</h2>
+            <ul class="index-list">
+                <li class="index-item" onclick="goToPage(1); toggleIndex();">
+                    <div class="index-item-title">Entradas</div>
+                    <div class="index-item-subtitle">Carpacio, Croquetas, Camarones y más</div>
+                </li>
+                <li class="index-item" onclick="goToPage(2); toggleIndex();">
+                    <div class="index-item-title">Entradas (Cont.)</div>
+                    <div class="index-item-subtitle">Tapas, Quesos y Especialidades</div>
+                </li>
+                <li class="index-item" onclick="goToPage(3); toggleIndex();">
+                    <div class="index-item-title">Pescado y Mariscos</div>
+                    <div class="index-item-subtitle">Cataplana, Bacalhau, Arroz de Mariscos</div>
+                </li>
+                <li class="index-item" onclick="goToPage(4); toggleIndex();">
+                    <div class="index-item-title">Pescado y Mariscos (Cont.)</div>
+                    <div class="index-item-subtitle">Pulpo, Linguini, Atún y más</div>
+                </li>
+                <li class="index-item" onclick="goToPage(5); toggleIndex();">
+                    <div class="index-item-title">Carnes</div>
+                    <div class="index-item-subtitle">Costilla, Cordero, Ternera</div>
+                </li>
+                <li class="index-item" onclick="goToPage(6); toggleIndex();">
+                    <div class="index-item-title">Carnes (Cont.)</div>
+                    <div class="index-item-subtitle">Pato, Cerdo, Especialidades</div>
+                </li>
+                <li class="index-item" onclick="goToPage(7); toggleIndex();">
+                    <div class="index-item-title">Postres</div>
+                    <div class="index-item-subtitle">Pastel de Nata, Tartes y Dulces</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>La Mejor Comida Portuguesa</h1>
+            <p>Menú Tradicional</p>
+        </div>
+
+
+        <!-- Página 1: Entradas (Parte 1) -->
+        <div class="page active" data-page="1">
+            <h2 class="page-title">Entradas</h2>
+            <p class="page-subtitle">Aperitivos Tradicionales Portugueses</p>
+
+            <div class="menu-section">
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <img src="../extern-arch/MENUv2/3.jpg" alt="Pasteis de Bacalhau" class="item-image">
+                        <div class="item-image-placeholder" style="display:none;">🥟</div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-info">
+                            <div class="item-name">PASTEIS DE BACALHAU — CROQUETAS DE BACALAU</div>
+                            <div class="item-description">2 unidades</div>
+                        </div>
+                        <div class="item-price">$3.80</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <img src="../extern-arch/MENUv2/4.jpg" alt="Camarão Jumbo a Chef" class="item-image">
+                        <div class="item-image-placeholder" style="display:none;">🦐</div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-info">
+                            <div class="item-name">CAMARÃO JUMBO A CHEF</div>
+                            <div class="item-description">Camarón jumbo al estilo chef — aprox. 500g</div>
+                        </div>
+                        <div class="item-price">$21.50</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <img src="../extern-arch/MENUv2/5.jpg" alt="Carpacio de Pulpo" class="item-image">
+                        <div class="item-image-placeholder" style="display:none;">🐙</div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-info">
+                            <div class="item-name">CARPACIO DE PULPO</div>
+                            <div class="item-description">Con salsa de vinagre, miel, nueces y tostadas</div>
+                        </div>
+                        <div class="item-price">$18.30</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <img src="../extern-arch/MENUv2/6.jpg" alt="Ensalada de Embutidos" class="item-image">
+                        <div class="item-image-placeholder" style="display:none;">🥗</div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-info">
+                            <div class="item-name">ENSALADA DE EMBUTIDOS Y QUESOS CURADOS</div>
+                            <div class="item-description">Ensalada de embutidos curados y quesos — ideal para compartir</div>
+                        </div>
+                        <div class="item-price">$11.60</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <img src="../extern-arch/MENUv2/7.jpg" alt="Pica Pau" class="item-image">
+                        <div class="item-image-placeholder" style="display:none;">🥘</div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-info">
+                            <div class="item-name">PICA PAU</div>
+                            <div class="item-description">Carne de cerdo marinada con pasta de chile rojo, especias y vegetales encurtidos</div>
+                        </div>
+                        <div class="item-price">$9.80</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <img src="../extern-arch/MENUv2/8.jpg" alt="Pão Caseiro" class="item-image">
+                        <div class="item-image-placeholder" style="display:none;">🍞</div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-info">
+                            <div class="item-name">PÃO CASEIRO DE MASSA MADRE</div>
+                            <div class="item-description">Pan casero de masa madre, típico de Madeira</div>
+                        </div>
+                        <div class="item-price">$2.80</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 2: Entradas (Parte 2) -->
+        <div class="page" data-page="2">
+            <h2 class="page-title">Entradas</h2>
+            <p class="page-subtitle">Continuación</p>
+
+            <div class="menu-section">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">PATANISCAS DE CAMARAO</div>
+                        <div class="item-description">Buñuelos de camarón</div>
+                    </div>
+                    <div class="item-price">$4.10</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">CARPACIO DE BOCA COLORADO CURADO / AHUMADO</div>
+                        <div class="item-description">Salsa Agridulce, alcaparras y tostadas</div>
+                    </div>
+                    <div class="item-price">$16.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">ALMEJA BLANCA IMPORTADA A LA MODA DEL CHEF</div>
+                        <div class="item-description">Almeja salteada en aceite de oliva extra Virgen, ajo, cilantro</div>
+                    </div>
+                    <div class="item-price">$12.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">TABLA DE TAPAS Y QUESOS (GRANDE)</div>
+                        <div class="item-description">Nuca curada, lomo Curado, Tocineta, Jamón Cocido ahumado, Bresaola Salame Ajo, Chorizo Picante, Magre de Pato curado, bacon ahumado, chourizo Portugués ahumado, queso curado, mermelada de Vegetales, encurtido de vegetales y aceitunas</div>
+                    </div>
+                    <div class="item-price">$65.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">TABLA DE TAPAS Y QUESOS (MEDIANA)</div>
+                        <div class="item-description">Nuca curada, lomo Curado, Tocineta, Jamón Cocido, Salame Ajo, Chorizo Picante, queso curado, mermelada de vegetales, encurtido de vegetales</div>
+                    </div>
+                    <div class="item-price">$36.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 3: Pescado y Mariscos (Parte 1) -->
+        <div class="page" data-page="3">
+            <h2 class="page-title">Pescado y Mariscos</h2>
+            <p class="page-subtitle">Platos Fuertes del Mar</p>
+
+            <div class="menu-section">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">CATAPLANA DE PEIXE E MARISCOS</div>
+                        <div class="item-description">Cataplana de pescado y mariscos para dos personas</div>
+                    </div>
+                    <div class="item-price">$58.60</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">ARROZ DE MARISCOS A DON IÑACIO</div>
+                        <div class="item-description">2 Pers. Langosta, camarón Jumbo, camarón 16/20, navajas, almeja blanca, caracol y aros de calamar</div>
+                    </div>
+                    <div class="item-price">$63.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">FEIJOADA DE PEIXE E MARISCOS DON INACIO</div>
+                        <div class="item-description">Frijolada de pescado y mariscos con frijol blanco, Camarón, almeja blanca, aro de calamar, mejillones y caracol</div>
+                    </div>
+                    <div class="item-price">$32.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">BACALHAU A LAGAREIRO</div>
+                        <div class="item-description">Bacalao al horno en Aceite de Oliva Virgen Extra y papitas horneadas</div>
+                    </div>
+                    <div class="item-price">$26.80</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 4: Pescado y Mariscos (Parte 2) -->
+        <div class="page" data-page="4">
+            <h2 class="page-title">Pescado y Mariscos</h2>
+            <p class="page-subtitle">Continuación</p>
+
+            <div class="menu-section">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">POLVO A LAGAREIRO</div>
+                        <div class="item-description">Pulpo al horneado en aceite de Oliva Virgen Extra, y papitas horneadas</div>
+                    </div>
+                    <div class="item-price">$26.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">LINGUINI PEIXE E FRUTOS DO MAR</div>
+                        <div class="item-description">Pasta linguini, pescado, camarón, mejillón, almeja blanca y calamar</div>
+                    </div>
+                    <div class="item-price">$21.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">ARROZ DE POLVO</div>
+                        <div class="item-description">Arroz de pulpo y camarón</div>
+                    </div>
+                    <div class="item-price">$25.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">ARROZ DE TAMBORIL</div>
+                        <div class="item-description">Rico arroz de pescado importado (RAPE)</div>
+                    </div>
+                    <div class="item-price">$21.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">ARROZ DE CAMARÃO</div>
+                        <div class="item-description">Arroz de camarones</div>
+                    </div>
+                    <div class="item-price">$23.90</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">BIFE DE ATUM SALSA VINHO DO PORTO</div>
+                        <div class="item-description">400 Grs. Steak de Atún fresco importado, Salsa al vino PORTO y puré de papa. Plato típico de la isla Portuguesa MADEIRA</div>
+                    </div>
+                    <div class="item-price">$26.80</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 5: Carnes (Parte 1) -->
+        <div class="page" data-page="5">
+            <h2 class="page-title">Carnes</h2>
+            <p class="page-subtitle">Platos Fuertes de Carne</p>
+
+            <div class="menu-section">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">CARNE DE VACA A AÇORIANA</div>
+                        <div class="item-description">Rica Carne de rez al horno acompañado con papa horneada. Plato típico de la Isla Portuguesa, AZORES</div>
+                    </div>
+                    <div class="item-price">$28.60</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">COSTELA DE PORCO FUMADA</div>
+                        <div class="item-description">400 Grs. Costilla de cerdo ahumada con papa salteada con bacon</div>
+                    </div>
+                    <div class="item-price">$18.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">ENSOPADO DE BORREGO</div>
+                        <div class="item-description">Estofado de Cordero acompañado de papa al horno</div>
+                    </div>
+                    <div class="item-price">$32.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">BORREGO ASSADO NO FORNO</div>
+                        <div class="item-description">Únicamente por reserva. Cordero al Horno, acompañado de papitas horneadas</div>
+                    </div>
+                    <div class="item-price">$62.90</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">CARNE DE PORCO A ALENTEJANA</div>
+                        <div class="item-description">Carne de cerdo marinada en pasta de chili dulce, con papa frita en cubitos, Almeja Blanca Importada y encurtidos</div>
+                    </div>
+                    <div class="item-price">$18.60</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 6: Carnes (Parte 2) -->
+        <div class="page" data-page="6">
+            <h2 class="page-title">Carnes</h2>
+            <p class="page-subtitle">Continuación</p>
+
+            <div class="menu-section">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">ARROZ DE PATO NO FORNO</div>
+                        <div class="item-description">Arroz de pato al horno con bacon y chorizo</div>
+                    </div>
+                    <div class="item-price">$23.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">POSTA A MODA DO CHEF</div>
+                        <div class="item-description">500 Grs. Lomo de ternera a la parrilla a la moda del chef acompañada de papita asada con aceite de oliva, ajo, hierbas aromáticas</div>
+                    </div>
+                    <div class="item-price">Consultar</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">MEDALHÕES DE VITELA</div>
+                        <div class="item-description">Medallones de filet de ternera, con salsa al vino Porto, pimienta negra, acompañados con papitas asadas</div>
+                    </div>
+                    <div class="item-price">Consultar</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">MASSA A LAVRADOR</div>
+                        <div class="item-description">Coditos de pasta con carnes ahumadas, frijoles rojos y vegetales</div>
+                    </div>
+                    <div class="item-price">$16.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">FEIJOADA TRANSMONTANA</div>
+                        <div class="item-description">Rica Frijolada echada a base de carnes ahumadas, chorizo Ahumado</div>
+                    </div>
+                    <div class="item-price">$18.50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 7: Postres -->
+        <div class="page" data-page="7">
+            <h2 class="page-title">Postres</h2>
+            <p class="page-subtitle">Dulces Tradicionales Portugueses</p>
+
+            <div class="menu-section">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">PASTEL DE NATA</div>
+                        <div class="item-description">Pastel típico de Portugal a base de crema de huevos</div>
+                    </div>
+                    <div class="item-price">$1.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">QUIJADA DA MADEIRA</div>
+                        <div class="item-description">Tartelete de Quesadilla típica de Portugal hecha a base de Queso fresco</div>
+                    </div>
+                    <div class="item-price">$5.60</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">TARTE DE AMENDOA</div>
+                        <div class="item-description">Tarte de almendras</div>
+                    </div>
+                    <div class="item-price">$6.40</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">SEDUÇÃO DE CAFÉ Y CHOCOLATE NEGRO</div>
+                        <div class="item-description">Postre a base de Chocolate, café y cocoa</div>
+                    </div>
+                    <div class="item-price">$5.80</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">SEMIFRIO COM MARMELADA DE VEGETAIS</div>
+                    </div>
+                    <div class="item-price">$4.60</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegación -->
+        <div class="navigation">
+            <button class="nav-button" id="prevBtn" onclick="changePage(-1)">◀ Anterior</button>
+            <div class="page-indicator">
+                <span id="currentPage">1</span> / <span id="totalPages">7</span>
+            </div>
+            <button class="nav-button" id="nextBtn" onclick="changePage(1)">Siguiente ▶</button>
+        </div>
+    </div>
+
+    <script src="script3.js"></script>
+
+</body>
+</html>

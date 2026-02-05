@@ -167,8 +167,9 @@ nav ul li a{
 .hero-text { 
     margin-top: 50px;
   width: 90%;
-  max-width: 800px;
-  text-align: center;
+  max-width: 900px;
+  text-align: start;
+  font-size: 18px;
   align-items: center;
   color: #fff;
 }
@@ -178,6 +179,11 @@ nav ul li a{
   max-height: 100px;
   overflow: hidden;
   transition: max-height 0.4s ease;
+}
+
+.negrita {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .hero-text.active .hero-paragraph {
@@ -334,6 +340,7 @@ nav ul li a{
     width: 200px;
     height: 370px;
     display: flex;
+    cursor: pointer;
     border-radius: 20px;
     flex-direction: column;
     text-align: center;
@@ -373,6 +380,7 @@ nav ul li a{
 }
 
 .botonotes{
+    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -384,6 +392,7 @@ nav ul li a{
     height: 40px;
     cursor: pointer;
     border: none;
+    font-size: 1.5rem;
     background-color: #fca43f;
     border-radius: 50%;
     margin-right: 10px;
@@ -398,6 +407,7 @@ nav ul li a{
     height: 40px;
     cursor: pointer;
     border: none;
+    font-size: 1.5rem;
     background-color: #fca43f;
     border-radius: 50%;
     margin-left: 10px;

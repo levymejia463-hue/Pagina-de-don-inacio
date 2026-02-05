@@ -10,9 +10,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fabc74;
+
     font-family: "Inria Serif", serif;
 }
+
 
 
 .sub-header h1{
