@@ -16,6 +16,7 @@ body {
 .sub-header h1{
     font-size: 0.7rem;
     text-align: center;
+    align-items: center;
     font-family: "Inria Serif", serif;
     color: #ffffff;
 }
@@ -29,6 +30,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 999;
 }
 
 .logo{
@@ -255,3 +257,17 @@ input[type="date"],
             box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
             transform: translateY(-2px);
         }
+
+@media (max-width: 768px) {
+   .br{
+    display: none;
+   } 
+
+   .logo{
+    margin-left: 0px;
+    }
+
+    .sub-header {
+            justify-content: center;
+    }
+}

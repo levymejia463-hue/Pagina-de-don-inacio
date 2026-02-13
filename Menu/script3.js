@@ -173,24 +173,20 @@ let currentPage = 1;
             return categories[pageNumber] || 'Especialidades';
         }
 
-        // Mapeo de imágenes para cada plato (ordenado según Menu/index3.html)
+        // Mapeo de imágenes para cada plato (rutas relativas dentro del proyecto)
         const dishImages = {
-            // Página 1: Entradas (orden según HTML)
-            'PASTEIS DE BACALHAU — CROQUETAS DE BACALAU': '../extern-arch/MENUv2/3.jpg',
-            'CAMARÃO JUMBO A CHEF': '../extern-arch/MENUv2/4.jpg',
+            'CROQUETAS DE BACALAU': '../extern-arch/MENUv2/3.jpg',
             'CARPACIO DE PULPO': '../extern-arch/MENUv2/5.jpg',
             'ENSALADA DE EMBUTIDOS Y QUESOS CURADOS': '../extern-arch/MENUv2/6.jpg',
-            'PICA PAU': '../extern-arch/MENUv2/7.jpg',
+            'PASTEIS DE BACALHAU': '../extern-arch/MENUv2/6.jpg',
+            'CAMARÃO JUMBO A CHEF': '../extern-arch/MENUv2/4.jpg',
             'PÃO CASEIRO DE MASSA MADRE': '../extern-arch/MENUv2/8.jpg',
-
-            // Página 2: Entradas (continuación)
+            'PICA PAU': '../extern-arch/MENUv2/7.jpg',
             'PATANISCAS DE CAMARAO': '../extern-arch/MENUv2/9.jpg',
             'CARPACIO DE BOCA COLORADO CURADO / AHUMADO': '../extern-arch/MENUv2/10.jpg',
             'ALMEJA BLANCA IMPORTADA A LA MODA DEL CHEF': '../extern-arch/MENUv2/11.jpg',
             'TABLA DE TAPAS Y QUESOS (GRANDE)': '../extern-arch/MENUv2/12.jpg',
             'TABLA DE TAPAS Y QUESOS (MEDIANA)': '../extern-arch/MENUv2/13.jpg',
-
-            // Página 3-4: Pescado y mariscos (mantener mapeo existente)
             'CATAPLANA DE PEIXE E MARISCOS': '../extern-arch/MENUv2/15.jpg',
             'ARROZ DE MARISCOS A DON IÑACIO': '../extern-arch/MENUv2/16.jpg',
             'FEIJOADA DE PEIXE E MARISCOS DON INACIO': '../extern-arch/MENUv2/17.png',
@@ -200,8 +196,6 @@ let currentPage = 1;
             'ARROZ DE POLVO': '../extern-arch/MENUv2/21.png',
             'ARROZ DE TAMBORIL': '../extern-arch/MENUv2/22.png',
             'ARROZ DE CAMARÃO': '../extern-arch/MENUv2/23.png',
-
-            // Página 5-6: Carnes (mantener mapeo existente)
             'BIFE DE ATUM SALSA VINHO DO PORTO': '../extern-arch/MENUv2/24.png',
             'CARNE DE VACA A AÇORIANA': '../extern-arch/MENUv2/25.png',
             'COSTELA DE PORCO FUMADA': '../extern-arch/MENUv2/26.png',
@@ -213,17 +207,11 @@ let currentPage = 1;
             'MEDALHÕES DE VITELA': '../extern-arch/MENUv2/32.png',
             'MASSA A LAVRADOR': '../extern-arch/MENUv2/33.png',
             'FEIJOADA TRANSMONTANA': '../extern-arch/MENUv2/34.png',
-
-            // Postres
             'PASTEL DE NATA': '../extern-arch/MENUv2/35.png',
             'QUIJADA DA MADEIRA': '../extern-arch/MENUv2/36.png',
             'TARTE DE AMENDOA': '../extern-arch/MENUv2/37.png',
             'SEDUÇÃO DE CAFÉ Y CHOCOLATE NEGRO': '../extern-arch/MENUv2/38.png',
-            'SEMIFRIO COM MARMELADA DE VEGETAIS': '../extern-arch/MENUv2/39.png',
-
-            // Alias/variantes para nombres usados en el HTML
-            'CROQUETAS DE BACALAU': '../extern-arch/MENUv2/3.jpg',
-            'PASTEIS DE BACALHAU': '../extern-arch/MENUv2/3.jpg'
+            'SEMIFRIO COM MARMELADA DE VEGETAIS': '../extern-arch/MENUv2/39.png'
         };
 
         function openDishModal(dishName, description, price, imageUrl, emoji) {
@@ -534,3 +522,7 @@ let currentPage = 1;
             // DOM ya está listo
             addImageContainersToAllItems();
         }
+
+        function volver() {
+    window.location.href="../index.html"
+}

@@ -1,251 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
     <link rel="stylesheet" href="style1.css">
-    <title>GALERIA</title>
+    <title>GALERÍA - Restaurante de Don Inacio</title>
 </head>
 <body>
 
     <div class="sub-header" id="sub-header">
         <div class="logo">
-                <h1 onclick="volver()";>Restaurante de <br><span style="font-size: 1.1rem;">don inacio</span></h1>
-            </div>
+            <h1 onclick="volver()">Restaurante de <br><span style="font-size: 1.1rem;">don inacio</span></h1>
+        </div>
 
-            <button class="br btns-menu">ver menu</button>
-            <button class="br btns-reservar" onclick="window.location.href='../reservas/index.html'">reservar</button>
-            
-            <div class="menu-ham" id="manuham">
-                <button class="btn-close" id="close"> X </button>
-                <nav>
-                    <ul>
-                        <li><a href="#">inicio</a></li>
-                        <li><a href="#">sobre nosotros</a></li>
-                        <li><a href="#">menu</a></li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">reservas</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <button class="openMenu" id="openMenu"><span class="material-symbols-outlined">menu</span></button>
+        <button class="br btns-menu">ver menu</button>
+        <button class="br btns-reservar" onclick="window.location.href='../reservas/index.html'">reservar</button>
+        
+        <div class="menu-ham" id="manuham">
+            <button class="btn-close" id="close"> X </button>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/galeria-de-fotos/index1.html">Galeria</a></li>
+                    <li><a href="/Menu/index3.html">Menú</a></li>
+                    <li><a href="/secc-productos/index2.html">Productos</a></li>
+                    <li><a href="/reservas/index.html">Reservar</a></li>
+                </ul>
+            </nav>
+        </div>
+        <button class="openMenu" id="openMenu"><span class="material-symbols-outlined">menu</span></button>
     </div>
 
-    <!--las columnas alv-->
+    <!-- Título de la galería -->
+    <div class="gallery-header">
+        <h2>Nuestra Galería</h2>
+        <p>Descubre los momentos más especiales de nuestro restaurante</p>
+    </div>
 
-    <div class="row">
-        <div class="column">
-            <img src="../extern-arch/imagenes galeria/7.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/1.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/7.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/11.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/14.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/20.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/24.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/28.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/31.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/36.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/40.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/42.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/44.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/46.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/50.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/53.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/55.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/58.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/60.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/64.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/66.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/70.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/72.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/75.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/77.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/79.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/82.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/84.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/87.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/88.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/90.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/93.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/94.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/98.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/100.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/102.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/106.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/109.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/113.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/115.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/119.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/120.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/122.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/127.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/131.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/134.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/137.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/140.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/142.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/145.jpg" alt="">
+    <!-- Filtros opcionales -->
+    <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="food">Comida</button>
+        <button class="filter-btn" data-filter="ambiente">Ambiente</button>
+        <button class="filter-btn" data-filter="eventos">Eventos</button>
+    </div>
 
+    <!-- Galería responsive con grid -->
+    <div class="gallery-container">
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Las imágenes se cargarán desde el JavaScript -->
         </div>
+    </div>
 
-        <div class="column">
-            <img src="../extern-arch/imagenes galeria/4.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/123.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/27.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/34.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/48.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/57.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/69.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/76.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/83.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/97.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/105.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/118.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/126.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/139.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/151.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/163.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/172.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/185.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/193.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/6.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/15.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/23.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/38.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/45.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/54.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/62.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/71.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/85.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/92.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/107.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/116.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/128.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/136.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/149.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/157.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/165.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/178.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/186.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/194.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/10.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/18.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/32.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/49.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/67.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/81.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/96.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/111.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/123.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/135.jpg" alt="">
-
+    <!-- Modal para lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <span class="material-symbols-outlined">x</span>
+        </button>
+        
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <span class="material-symbols-outlined"><</span>
+        </button>
+        
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-counter" id="lightboxCounter"></div>
         </div>
+        
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <span class="material-symbols-outlined">></span>
+        </button>
+    </div>
 
-        <div class="column">
-            <img src="../extern-arch/imagenes galeria/3.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/17.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/29.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/41.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/56.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/68.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/74.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/89.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/95.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/108.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/121.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/133.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/147.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/159.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/171.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/184.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/196.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/8.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/22.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/35.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/47.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/61.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/73.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/86.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/99.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/112.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/124.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/138.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/150.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/162.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/175.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/187.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/199.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/12.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/26.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/39.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/52.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/65.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/78.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/91.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/104.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/117.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/130.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/143.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/156.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/168.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/180.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/192.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/200.jpg" alt="">
-
-        </div>
-
-        <div class="column">
-            <img src="../extern-arch/imagenes galeria/54.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/149.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/5.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/98.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/176.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/21.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/63.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/189.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/44.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/120.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/9.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/155.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/72.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/31.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/200.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/58.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/114.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/87.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/166.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/2.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/94.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/129.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/46.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/173.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/68.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/11.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/159.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/82.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/26.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/197.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/53.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/101.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/17.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/148.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/66.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/184.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/39.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/125.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/90.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/7.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/170.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/59.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/132.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/24.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/181.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/77.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/109.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/14.jpg" alt="">
-            <img src="../extern-arch/imagenes galeria/195.jpg" alt="">
-        </div>
+    <!-- Loading spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
     </div>
 
     <script src="script1.js"></script>

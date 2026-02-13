@@ -7,9 +7,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
     <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="../reservas/style.css">
+    <style>
+        /* Mantener body sin fondo si se desea, pero permitir que sub-header use estilos de reservas/style.css */
+        body { background: none !important; }
+        /* Ocultar contenido de header1 (solicitado) */
+        .header1 { background: transparent !important; backdrop-filter: none !important; padding: 0 !important; border-radius: 0 !important; }
+        .header1 .icon, .header1 h1, .header1 p { display: none !important; }
+    </style>
 </head>
 <body>
+     <div class="sub-header" id="sub-header">
+        <div class="logo">
+                <h1 onclick="volver()">Restaurante de <br><span style="font-size: 1.1rem;">don inacio</span></h1>
+            </div>
+
+            <button class="br btns-reservar" onclick="window.location.href='../reservas/index.html'">reservar</button>
+            
+            <div class="menu-ham" id="manuham">
+                <button class="btn-close" id="close"> X </button>
+                <nav>
+                    <ul>
+                        <li><a href="/index.html">Inicio</a></li>
+                        <li><a href="/galeria-de-fotos/index1.html">Galeria</a></li>
+                        <li><a href="/Menu/index3.html">Menú</a></li>
+                        <li><a href="/secc-productos/index2.html">Productos</a></li>
+                        <li><a href="/reservas/index.html">Reservar</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <button class="openMenu" id="openMenu"><span class="material-symbols-outlined">menu</span></button>
+    </div>
     <button class="index-button" onclick="toggleIndex()">📑 Índice</button>
 
     <!-- Modal de Detalles del Plato -->
@@ -90,11 +120,8 @@
     </div>
 
     <div class="menu-container">
-        <!-- Header -->
-        <div class="header">
-            <h1>La Mejor Comida Portuguesa</h1>
-            <p>Menú Tradicional</p>
-        </div>
+        <!-- Header: usar el mismo estilo que la sección de reservas -->
+        <div class="header1"></div>
 
 
         <!-- Página 1: Entradas (Parte 1) -->
@@ -486,6 +513,7 @@
         </div>
     </div>
 
+    <script src="../reservas/script.js"></script>
     <script src="script3.js"></script>
 
 </body>

@@ -2,15 +2,23 @@ const menu = document.getElementById('manuham');
 const open = document.getElementById('openMenu');
 const close = document.getElementById('close');
 
-open.addEventListener('click', () => {
-    menu.classList.add('actives');
-    open.classList.add('remove');
-})
+// Sólo agregar handlers si el elemento 'open' existe y tiene la clase 'openMenu'
+if (open && open.classList.contains('openMenu')) {
+    open.addEventListener('click', () => {
+        menu.classList.add('actives');
+        open.classList.add('remove');
+    })
 
-close.addEventListener('click', () => {
-    menu.classList.remove('actives');
-    open.classList.remove('remove');
-})
+    close.addEventListener('click', () => {
+        menu.classList.remove('actives');
+        open.classList.remove('remove');
+    })
+} else if (close) {
+    // Si no hay botón de apertura de menú, asegurar que el botón cerrar no falle al referirse a 'open'
+    close.addEventListener('click', () => {
+        menu.classList.remove('actives');
+    })
+}
 
 function volver() {
     window.location.href="../index.html"
