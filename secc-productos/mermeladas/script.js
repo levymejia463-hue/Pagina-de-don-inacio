@@ -3,19 +3,18 @@ const menu = document.getElementById('manuham');
 const open = document.getElementById('openMenu');
 const close = document.getElementById('close');
 
-open.addEventListener('click', () => {
-    menu.classList.add('actives');
-    open.classList.add('remove');
-});
+if (open && menu) {
+    open.addEventListener('click', () => {
+        menu.classList.add('actives');
+        open.classList.add('remove');
+    });
+}
 
-close.addEventListener('click', () => {
-    menu.classList.remove('actives');
-    open.classList.remove('remove');
-});
-
-// ============ FUNCIÓN VOLVER AL INICIO ============
-function volver() {
-    window.location.href = "../../index.html";
+if (close && menu && open) {
+    close.addEventListener('click', () => {
+        menu.classList.remove('actives');
+        open.classList.remove('remove');
+    });
 }
 
 // ============ DATOS DE PRODUCTOS POR SECCIÓN ============
@@ -137,20 +136,25 @@ function mostrarDetalles(producto) {
     const detallesDiv = document.getElementById('detallesDelProducto');
     const overlay = document.getElementById('overlay');
     
-    // Crear número de teléfono de WhatsApp (ajusta el número según necesites)
-    const numeroWhatsApp = '50312345678'; // Cambiar por el número real
+    const numeroWhatsApp = '50312345678';
     const mensaje = `Hola! Me interesa el producto: ${producto.nombre} - Precio: $${producto.precio}`;
     const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
     
     detallesDiv.innerHTML = `
         <button class="btn-close" onclick="cerrarDetalles()">×</button>
-        <img src="${producto.imagen}" alt="${producto.nombre}" class="detalles-imagen">
-        <h2 class="detalles-nombre">${producto.nombre}</h2>
-        <p class="detalles-descripcion">${producto.descripcion}</p>
-        <p class="detalles-precio">$${producto.precio}</p>
-        <button class="btn-whatsapp" onclick="window.open('${urlWhatsApp}', '_blank')">
-            Pedir por WhatsApp
-        </button>
+        
+        <div class="detalles-imagen-container">
+            <img src="${producto.imagen}" alt="${producto.nombre}" class="detalles-imagen">
+        </div>
+        
+        <div class="detalles-info-container">
+            <h2 class="detalles-nombre">${producto.nombre}</h2>
+            <p class="detalles-descripcion">${producto.descripcion}</p>
+            <p class="detalles-precio">$${producto.precio}</p>
+            <button class="btn-whatsapp" onclick="window.open('${urlWhatsApp}', '_blank')">
+                Pedir por WhatsApp
+            </button>
+        </div>
     `;
     
     detallesDiv.classList.add('mostrar');

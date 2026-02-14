@@ -9,43 +9,24 @@
 </head>
 <body>
 
-    <!--header-->
-    <div class="sub-header" id="sub-header">
-        <div class="logo">
-            <h1 onclick="volver()">Restaurante de <br><span style="font-size: 1.1rem;">don inacio</span></h1>
-        </div>
-
-        <button class="br btns-menu">ver menu</button>
-        <button class="br btns-reservar" onclick="window.location.href='../reservas/index.html'">reservar</button>
-        
-        <div class="menu-ham" id="manuham">
-            <button class="btn-close" id="close"> X </button>
-            <nav>
-                <ul>
-                    <li><a href="../../index.html">Inicio</a></li>
-                    <li><a href="../../galeria-de-fotos/index1.html">Galeria</a></li>
-                    <li><a href="../../Menu/index3.html">Menú</a></li>
-                    <li><a href="../../secc-productos/index2.html">Productos</a></li>
-                    <li><a href="../../reservas/index.html">Reservar</a></li>
-                </ul>
-            </nav>
-        </div>
-        <button class="openMenu" id="openMenu"><span class="material-symbols-outlined">menu</span></button>
-    </div>
-
     <!--Contenido principal-->
     <div class="main-container">
         <div class="category-header">
-            <button class="btn-back" onclick="window.location.href='../index2.html'">
-                <span class="arrow">←</span> Volver a Productos
-            </button>
+            <div class="navigation-buttons">
+                <button class="btn-back" onclick="window.history.back()">
+                    <span class="arrow">←</span> Atrás
+                </button>
+                <button class="btn-home" onclick="window.location.href='../../index.html'">
+                    <span class="home-icon">🏠</span> Inicio
+                </button>
+            </div>
             <h1 class="category-name">Sales Gourmet</h1>
             <p class="category-description">Eleva tus platillos con nuestra colección de sales gourmet artesanales. Elaboradas con sal marina 100% natural y combinadas con especias, hierbas aromáticas y sabores únicos, cada variedad está diseñada para realzar y transformar tus recetas. Desde la intensidad ahumada hasta la frescura cítrica, encuentra la sal perfecta para cada ocasión culinaria.</p>
         </div>
 
         <!--Modal de detalles del producto-->
         <div class="detalles" id="detallesDelProducto">
-            <button class="btn-close" onclick="cerrarDetalles()">x</button>
+            <button class="btn-close" onclick="cerrarDetalles()">×</button>
         </div>
 
         <!--Overlay-->

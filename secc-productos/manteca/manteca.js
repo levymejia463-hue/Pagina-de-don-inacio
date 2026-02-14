@@ -1,30 +1,6 @@
-// ============ MANEJO DEL MENÚ ============
-const menu = document.getElementById('manuham');
-const open = document.getElementById('openMenu');
-const close = document.getElementById('close');
-
-if (open && menu) {
-    open.addEventListener('click', () => {
-        menu.classList.add('actives');
-        open.classList.add('remove');
-    });
-}
-
-if (close && menu && open) {
-    close.addEventListener('click', () => {
-        menu.classList.remove('actives');
-        open.classList.remove('remove');
-    });
-}
-
-// ============ DATOS DE PRODUCTOS SALCHICHAS ============
-const productosSalchichas = [
-    { imagen: '../../extern-arch/salchinas-nuevas/6.png', nombre: 'Salchicha Tradicional Ahumada', categoria: 'salchichas', descripcion: 'Salchicha fresca, cura natural a base de carne de cerdo, sal, especies y hierbas aromáticas, sin gluten, lactosa y conservantes.', precio: '7.50' },
-    { imagen: '../../extern-arch/salchinas-nuevas/5.png', nombre: 'Salchicha Camponesa', categoria: 'salchichas', descripcion: 'Salchicha fresca, cura natural a base de carne de cerdo, sal, especies y hierbas aromáticas, sin gluten, lactosa y conservantes.', precio: '6.80' },
-    { imagen: '../../extern-arch/salchinas-nuevas/4.png', nombre: 'Salchicha Mediterránea', categoria: 'salchichas', descripcion: 'Salchicha fresca, cura natural a base de carne de cerdo, sal, especies y hierbas aromáticas, sin gluten, lactosa y conservantes.', precio: '7.20' },
-    { imagen: '../../extern-arch/salchinas-nuevas/3.png', nombre: 'Salchicha Montaña', categoria: 'salchichas', descripcion: 'Salchicha fresca, cura natural a base de carne de res, sal, especies y hierbas aromáticas, sin gluten, lactosa y conservantes.', precio: '7.80' },
-    { imagen: '../../extern-arch/salchinas-nuevas/2.png', nombre: 'Salchicha Picante', categoria: 'salchichas', descripcion: 'Salchicha fresca, cura natural a base de carne de cerdo, sal, especies y hierbas aromáticas, sin gluten, lactosa y conservantes.', precio: '7.50' },
-    { imagen: '../../extern-arch/salchinas-nuevas/1.png', nombre: 'Salchicha Serrana', categoria: 'salchichas', descripcion: 'Salchicha fresca natural a base de carne de cerdo, sal, especies alimentarias y conservantes.', precio: '6.90' },
+// ============ DATOS DE PRODUCTOS - MANTECA NATURAL ============
+const productos = [
+    { imagen: '../../extern-arch/fotos de productos/26.jpg', nombre: 'Manteca 100% Natural de Cerdo - Don Inacio', descripcion: 'Manteca artesanal 100% natural de cerdo elaborada según receta tradicional portuguesa. Producto gourmet sin aditivos, conservantes ni colorantes. Ideal para cocina tradicional, freír, confitar y dar sabor auténtico a tus platillos. Perfecta para tortillas, frijoles, tamales y recetas que requieran grasa pura de cerdo. Presentación en frasco de vidrio. Conservar en lugar fresco y seco.', precio: '8.50' }
 ];
 
 // ============ CREAR OVERLAY ============
@@ -33,11 +9,25 @@ function createOverlay() {
     overlay.addEventListener('click', cerrarDetalles);
 }
 
-// ============ CARGAR PRODUCTOS EN EL GRID ============
+// ============ CARGAR PRODUCTOS ============
 function cargarProductos() {
-    const grid = document.getElementById('productosGrid');
+    const container = document.getElementById('seccionesContainer');
     
-    productosSalchichas.forEach((producto, index) => {
+    // Crear el contenedor de la sección
+    const seccionDiv = document.createElement('div');
+    seccionDiv.className = 'seccion-productos';
+    
+    // Título de la sección
+    const tituloSeccion = document.createElement('h2');
+    tituloSeccion.className = 'titulo-seccion';
+    tituloSeccion.textContent = 'Manteca Natural';
+    seccionDiv.appendChild(tituloSeccion);
+    
+    // Grid de productos
+    const grid = document.createElement('div');
+    grid.className = 'productos-grid';
+    
+    productos.forEach((producto, index) => {
         const productoCard = document.createElement('div');
         productoCard.className = 'producto';
         productoCard.style.animationDelay = `${index * 0.1}s`;
@@ -46,7 +36,7 @@ function cargarProductos() {
         productoCard.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">
             <div class="producto-info">
-                <h2 class="producto-nombre">${producto.nombre}</h2>
+                <h3 class="producto-nombre">${producto.nombre}</h3>
                 <p class="producto-precio">$${producto.precio}</p>
             </div>
         `;
@@ -54,7 +44,10 @@ function cargarProductos() {
         grid.appendChild(productoCard);
     });
     
-    console.log(`✨ ${productosSalchichas.length} productos cargados correctamente`);
+    seccionDiv.appendChild(grid);
+    container.appendChild(seccionDiv);
+    
+    console.log(`✨ ${productos.length} producto(s) cargado(s)`);
 }
 
 // ============ MOSTRAR DETALLES DEL PRODUCTO ============

@@ -89,16 +89,37 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
 
     // ============================================
-    // POSICIONAMIENTO DINÁMICO DEL DROPDOWN
+    // POSICIONAMIENTO DINÁMICO DEL MEGA MENU
     // ============================================
     
     const productosDropdown = document.querySelector('.productos-dropdown');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const megaMenu = document.querySelector('.mega-menu');
     
-    if (productosDropdown && dropdownMenu) {
+    if (productosDropdown && megaMenu) {
+        // Mostrar mega-menu al pasar el mouse
         productosDropdown.addEventListener('mouseenter', function() {
-            const rect = productosDropdown.getBoundingClientRect();
-            dropdownMenu.style.left = rect.left + 'px';
+            megaMenu.style.display = 'flex';
+        });
+        
+        // Mantener visible cuando el mouse está sobre el mega-menu
+        megaMenu.addEventListener('mouseenter', function() {
+            megaMenu.style.display = 'flex';
+        });
+        
+        // Ocultar cuando el mouse sale del área
+        productosDropdown.addEventListener('mouseleave', function(e) {
+            const toElement = e.relatedTarget;
+            if (!megaMenu.contains(toElement)) {
+                setTimeout(() => {
+                    if (!megaMenu.matches(':hover')) {
+                        megaMenu.style.display = 'none';
+                    }
+                }, 100);
+            }
+        });
+        
+        megaMenu.addEventListener('mouseleave', function() {
+            megaMenu.style.display = 'none';
         });
     }
 

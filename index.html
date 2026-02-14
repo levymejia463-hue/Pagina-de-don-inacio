@@ -25,17 +25,47 @@
                 <li><a href="/Menu/index3.html">Menú</a></li>
                 <li class="productos-dropdown">
                     <a href="#" class="dropdown-toggle">Productos</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/secc-productos/index2.html">Todos los Productos</a></li>
-                        <li class="submenu-item"><a href="#">Mermeladas</a></li>
-                        <li class="submenu-item"><a href="#">Salsas Picantes</a></li>
-                        <li class="submenu-item"><a href="#">Licores Naturales</a></li>
-                        <li class="submenu-item"><a href="#">Embutidos Curados</a></li>
-                        <li class="submenu-item"><a href="#">Embutidos Cocidos</a></li>
-                        <li class="submenu-item"><a href="#">Salchichas Frescas</a></li>
-                        <li class="submenu-item"><a href="#">Salsa de Tomate</a></li>
-                        <li class="submenu-item"><a href="#">Vinos</a></li>
-                    </ul>
+                    <div class="dropdown-menu mega-menu">
+                        <!-- Columna 1: Natural -->
+                        <div class="menu-column">
+                            <h3 class="column-title">Natural</h3>
+                            <ul class="column-items">
+                                <li><a href="/secc-productos/mermeladas/index.html">mermeladas</a></li>
+                                <li><a href="/secc-productos/licores/index.html">licores artesanales</a></li>
+                                <li><a href="/secc-productos/salsas-picantes/index.html">salsas y aceites picantes</a></li>
+                                <li><a href="/secc-productos/salsas-picantes/index.html">salsas y aceites picantes</a></li>
+                                <li><a href="/secc-productos/pastas/index.html">pastas y salsas gurmet</a></li>
+                                <li><a href="/secc-productos/manteca/index.html">manteca natural</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Columna 2: Charcutería -->
+                        <div class="menu-column">
+                            <h3 class="column-title">charcutería</h3>
+                            <ul class="column-items">
+                                <li><a href="/secc-productos/embutidos-curados/index.html">embutidos curados</a></li>
+                                <li><a href="/secc-productos/embutidos-cocidos/index.html">embutidos cocidos</a></li>
+                                <li><a href="/secc-productos/salsas-picantes/index.html">salsas y aceites picantes</a></li>
+                                <li><a href="/secc-productos/salchichas/index.html">salchichas frescas</a></li>
+                                <li><a href="/secc-productos/embutidos-curados/index.html">encurtidos</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Columna 3: Vinos y Gourmet -->
+                        <div class="menu-column">
+                            <h3 class="column-title">vinos</h3>
+                            <ul class="column-items">
+                                <li><a href="/secc-productos/vinos/index.html">Porto</a></li>
+                                <li><a href="/secc-productos/vinos/index.html">blancos</a></li>
+                            </ul>
+                            
+                            <h3 class="column-title section-spacing">gurmet</h3>
+                            <ul class="column-items">
+                                <li><a href="/secc-productos/index2.html">sales</a></li>
+                                <li><a href="/secc-productos/index2.html">aceite de oliva</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
                 <li><a href="/reservas/index.html">Reservar</a></li>
             </ul>
@@ -44,7 +74,7 @@
         <!-- Botón Filosofía del Chef en Header -->
         <button class="present-card" id="present-card">
             <img src="extern-arch/munuico.png" alt="Chef">
-            <span>Chef</span>
+            <span>filosofía del Chef</span>
         </button>
         
         <!-- Menú hamburguesa para móvil -->
@@ -59,14 +89,14 @@
                         <a href="#" class="mobile-dropdown-toggle">Productos</a>
                         <ul class="mobile-dropdown-menu">
                             <li><a href="/secc-productos/index2.html">Todos los Productos</a></li>
-                            <li><a href="#">Mermeladas</a></li>
-                            <li><a href="#">Salsas Picantes</a></li>
-                            <li><a href="#">Licores Naturales</a></li>
-                            <li><a href="#">Embutidos Curados</a></li>
-                            <li><a href="#">Embutidos Cocidos</a></li>
-                            <li><a href="#">Salchichas Frescas</a></li>
-                            <li><a href="#">Salsa de Tomate</a></li>
-                            <li><a href="#">Vinos</a></li>
+                            <li><a href="/secc-productos/mermeladas/index.html">Mermeladas</a></li>
+                            <li><a href="/secc-productos/salsas-picantes/index.html">Salsas Picantes</a></li>
+                            <li><a href="/secc-productos/licores/index.html">Licores Naturales</a></li>
+                            <li><a href="/secc-productos/embutidos-curados/index.html">Embutidos Curados</a></li>
+                            <li><a href="/secc-productos/embutidos-cocidos/index.html">Embutidos Cocidos</a></li>
+                            <li><a href="/secc-productos/salchichas/index.html">Salchichas Frescas</a></li>
+                            <li><a href="/secc-productos/natural/index.html">Salsa de Tomate</a></li>
+                            <li><a href="/secc-productos/vinos/index.html">Vinos</a></li>
                         </ul>
                     </li>
                     <li><a href="/reservas/index.html">Reservar</a></li>
@@ -158,49 +188,49 @@
 
         <div onclick="productos()" class="card-item">
             <div class="card-image-container">
-                <img src="extern-arch/embutidos cocidos/4.png" alt="Embutidos cocidos">
+                <img src="extern-arch/embutidos cocidos/1.png" alt="Embutidos cocidos">
                 <div class="card-overlay"></div>
-                <span class="card-badge">Fresco</span>
+                <span class="card-badge">Cocido</span>
             </div>
             <div class="card-content">
                 <h2>Embutidos Cocidos</h2>
-                <p>Embutidos cocidos artesanales,<span> de sabor delicado y textura jugosa, ideales para bocadillos, perfectos para disfrutar en frío y recién cocidos, elaborados con ingredientes seleccionados.</span></p>
+                <p>Embutidos frescos<span> de sabor suave, cocidos al punto, listos para consumir, ideales para bocadillos, ensaladas y preparaciones rápidas, con ingredientes de calidad.</span></p>
             </div>
         </div>
 
         <div onclick="productos()" class="card-item">
             <div class="card-image-container">
-                <img src="extern-arch/salchi.png" alt="Salchichas frescas">
+                <img src="extern-arch/salchinas-nuevas/4.png" alt="Salchichas frescas">
                 <div class="card-overlay"></div>
                 <span class="card-badge">Fresco</span>
             </div>
             <div class="card-content">
                 <h2>Salchichas Frescas</h2>
-                <p>Salchichas recién elaboradas<span> con carnes frescas y condimentos naturales, listas para asar, ideales para reuniones familiares, con textura jugosa y sabor intenso.</span></p>
+                <p>Salchichas frescas<span> con especias seleccionadas, sabor tradicional, perfectas para la parrilla, asadas o a la plancha, jugosas y de excelente calidad.</span></p>
             </div>
         </div>
 
         <div onclick="productos()" class="card-item">
             <div class="card-image-container">
-                <img src="extern-arch/salsa.png" alt="Salsa de tomate artesanal">
+                <img src="extern-arch/fotos de productos/14.jpg" alt="Salsa de tomate natural">
                 <div class="card-overlay"></div>
                 <span class="card-badge">Natural</span>
             </div>
             <div class="card-content">
                 <h2>Salsa de Tomate</h2>
-                <p>Salsa de tomate artesanal<span> elaborada con tomates frescos y especias naturales, de sabor equilibrado y textura suave, ideal para pastas, carnes y acompañamientos, sin conservantes artificiales.</span></p>
+                <p>Salsa de tomate natural,<span> 100% artesanal, con tomates frescos, sin aditivos ni conservantes artificiales, preparada con recetas tradicionales para realzar tus platos.</span></p>
             </div>
         </div>
 
         <div onclick="productos()" class="card-item">
             <div class="card-image-container">
-                <img src="extern-arch/vino.png" alt="Vinos seleccionados">
+                <img src="extern-arch/imgs-vinos/8.png" alt="Vinos seleccionados">
                 <div class="card-overlay"></div>
                 <span class="card-badge">Selección</span>
             </div>
             <div class="card-content">
                 <h2>Vinos</h2>
-                <p>Selección de vinos que acompañan<span> y realzan nuestros productos y platillos, elegidos para lograr el mejor maridaje y disponibles en distintas variedades.</span></p>
+                <p>Nuestra selección de vinos<span> cuidadosamente elegidos, tintos, blancos y especiales, perfectos para maridar con nuestros platos y productos, de las mejores bodegas.</span></p>
             </div>
         </div>
     </div>
@@ -299,7 +329,7 @@
         <div class="overlay-top">
             <!-- Foto del chef -->
             <div class="chef-photo">
-                <img src="extern-arch/chef-fernando.jpg" alt="Chef Fernando Inacio">
+                <img src="extern-arch/chef.jpeg" alt="Chef Fernando Inacio">
             </div>
             
             <!-- Título -->

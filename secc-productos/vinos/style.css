@@ -158,7 +158,15 @@ nav ul li a{
 .main-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 90px 40px 60px;
+    padding: 40px 40px 60px;
+}
+
+.navigation-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn-back {
@@ -166,7 +174,6 @@ nav ul li a{
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
-    margin-bottom: 20px;
     background: transparent;
     border: 2px solid #ffb25a;
     color: #ffb25a;
@@ -193,6 +200,39 @@ nav ul li a{
 
 .btn-back:hover .arrow {
     transform: translateX(-3px);
+}
+
+.btn-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-family: "Inria Serif", serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-home:hover {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-home .home-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-home:hover .home-icon {
+    transform: scale(1.1);
 }
 
 .category-header {
@@ -321,21 +361,22 @@ nav ul li a{
     display: none;
     position: fixed;
     background-color: white;
-    width: 450px;
-    max-height: 95vh;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
     border-radius: 25px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1001;
-    padding: 30px;
+    padding: 0;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .detalles.mostrar {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -359,12 +400,15 @@ nav ul li a{
     top: 15px;
     right: 15px;
     transition: all 0.3s;
-    background: #f5f5f5;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 300;
+    z-index: 10;
+    border: none;
+    cursor: pointer;
 }
 
 .detalles .btn-close:hover {
@@ -374,64 +418,83 @@ nav ul li a{
     box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4);
 }
 
+/* Contenedor de la imagen (lado izquierdo) */
+.detalles-imagen-container {
+    flex: 0 0 45%;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-right: 1px solid #e0e0e0;
+    min-height: 400px;
+}
+
 .detalles-imagen {
     width: 100%;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 20px;
-    margin-bottom: 15px;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
 }
 
-.detalles-nombre {
-    font-size: 1.7rem;
-    color: #222;
-    margin-bottom: 12px;
-    font-weight: 700;
-    line-height: 1.2;
+/* Contenedor de la información (lado derecho) */
+.detalles-info-container {
+    flex: 1;
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 90vh;
 }
 
-.detalles-descripcion {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #333;
-    margin: 12px 0;
-    max-height: none;
-    overflow-y: visible;
-    padding-right: 10px;
-    text-align: justify;
-    display: block;
-    width: 100%;
+.detalles-info-container::-webkit-scrollbar {
+    width: 6px;
 }
 
-.detalles-descripcion::-webkit-scrollbar {
-    width: 8px;
-}
-
-.detalles-descripcion::-webkit-scrollbar-track {
+.detalles-info-container::-webkit-scrollbar-track {
     background: #f1f1f1;
-    border-radius: 10px;
 }
 
-.detalles-descripcion::-webkit-scrollbar-thumb {
+.detalles-info-container::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, #ffb25a, #ff9a3d);
     border-radius: 10px;
 }
 
-.detalles-descripcion::-webkit-scrollbar-thumb:hover {
+.detalles-info-container::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #ff9a3d, #ffb25a);
 }
 
+.detalles-nombre {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.detalles-descripcion {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+    flex: 1;
+}
+
 .detalles-precio {
-    margin-top: 12px;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #eb922d;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #f0f0f0;
 }
 
 .btn-whatsapp {
     width: 100%;
-    height: 50px;
-    margin-top: 15px;
+    height: 55px;
     font-size: 1.1rem;
     border: none;
     cursor: pointer;
@@ -482,7 +545,7 @@ nav ul li a{
 /*============ RESPONSIVE ============*/
 @media (max-width: 1024px) {
     .main-container {
-        padding: 80px 30px 50px;
+        padding: 30px 30px 50px;
     }
     
     .productos-grid {
@@ -496,15 +559,16 @@ nav ul li a{
 }
 
 @media (max-width: 768px) {
-    .br {
-        display: none;
-    }
-    
     .main-container {
-        padding: 70px 20px 40px;
+        padding: 25px 20px 40px;
     }
     
-    .btn-back {
+    .navigation-buttons {
+        gap: 10px;
+    }
+    
+    .btn-back,
+    .btn-home {
         font-size: 0.9rem;
         padding: 8px 16px;
     }
@@ -522,22 +586,84 @@ nav ul li a{
         gap: 20px;
     }
     
+    /* Modal cambia a vertical en tablets y móviles */
     .detalles {
-        width: 90%;
-        max-width: 400px;
-        padding: 30px;
+        width: 92% !important;
+        max-width: 500px !important;
+        flex-direction: column !important;
+        max-height: 88vh !important;
+        overflow-y: auto !important;
+    }
+    
+    .detalles-imagen-container {
+        flex: none !important;
+        width: 100% !important;
+        border-right: none !important;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px 20px 15px 20px !important;
+        max-height: none !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+    
+    .detalles-imagen {
+        max-height: 280px !important;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+    
+    .detalles-info-container {
+        flex: none !important;
+        width: 100% !important;
+        padding: 20px !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+    
+    .detalles-nombre {
+        font-size: 1.35rem !important;
+        margin-bottom: 12px !important;
+        padding-bottom: 10px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .detalles-descripcion {
+        font-size: 0.88rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .detalles-precio {
+        font-size: 1.75rem !important;
+        margin-bottom: 15px !important;
+        padding-top: 10px !important;
+    }
+    
+    .btn-whatsapp {
+        height: 48px !important;
+        font-size: 0.95rem !important;
     }
 }
 
 @media (max-width: 480px) {
     .main-container {
-        padding: 60px 15px 30px;
+        padding: 20px 15px 30px;
     }
     
-    .btn-back {
+    .navigation-buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .btn-back,
+    .btn-home {
         font-size: 0.85rem;
         padding: 7px 14px;
-        margin-bottom: 15px;
+        width: 100%;
+        justify-content: center;
     }
     
     .category-name {
@@ -562,20 +688,38 @@ nav ul li a{
         height: 240px;
     }
     
+    /* Ajustes adicionales para pantallas muy pequeñas */
     .detalles {
-        width: 95%;
-        padding: 25px;
+        width: 95% !important;
+        border-radius: 18px;
+    }
+    
+    .detalles-imagen-container {
+        padding: 18px 15px 12px 15px !important;
     }
     
     .detalles-imagen {
-        height: 250px;
+        max-height: 240px !important;
+    }
+    
+    .detalles-info-container {
+        padding: 18px 15px !important;
     }
     
     .detalles-nombre {
-        font-size: 1.6rem;
+        font-size: 1.25rem !important;
+    }
+    
+    .detalles-descripcion {
+        font-size: 0.85rem !important;
     }
     
     .detalles-precio {
-        font-size: 1.8rem;
+        font-size: 1.6rem !important;
+    }
+    
+    .btn-whatsapp {
+        height: 46px !important;
+        font-size: 0.9rem !important;
     }
 }
