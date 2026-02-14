@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
+    <!-- Favicon agregado para evitar error 404 -->
+    <link rel="icon" type="image/png" href="extern-arch/logo.png">
     <title>Don Inacio - Restaurante</title>
 </head>
 <body>
@@ -38,6 +40,12 @@
                 <li><a href="/reservas/index.html">Reservar</a></li>
             </ul>
         </nav>
+
+        <!-- Botón Filosofía del Chef en Header -->
+        <button class="present-card" id="present-card">
+            <img src="extern-arch/munuico.png" alt="Chef">
+            <span>Chef</span>
+        </button>
         
         <!-- Menú hamburguesa para móvil -->
         <div class="menu-ham" id="manuham">
@@ -85,12 +93,7 @@
     </div>
 </header>
 
-<!-- Botón flotante para abrir filosofía del chef -->
-<button class="present-card" id="present-card">
-    <img src="extern-arch/munuico.png" alt="Chef">
-</button>
-        
-<button class="reopen-btn" id="reopenBtn" onclick="reseña()"> 
+<button class="reopen-btn" id="reopenBtn" onclick="resena()"> 
     <span class="material-symbols-outlined">star</span> 
     <span class="material-symbols-outlined">star</span> 
     <span class="material-symbols-outlined">star</span> 
@@ -161,25 +164,25 @@
             </div>
             <div class="card-content">
                 <h2>Embutidos Cocidos</h2>
-                <p>Embutidos suaves y jugosos,<span> elaborados con carnes seleccionadas y recetas artesanales, ideales para sandwiches y platos calientes, de sabor equilibrado.</span></p>
+                <p>Embutidos cocidos artesanales,<span> de sabor delicado y textura jugosa, ideales para bocadillos, perfectos para disfrutar en frío y recién cocidos, elaborados con ingredientes seleccionados.</span></p>
             </div>
         </div>
 
         <div onclick="productos()" class="card-item">
             <div class="card-image-container">
-                <img src="extern-arch/salchinas-nuevas/1.png" alt="Salchichas frescas">
+                <img src="extern-arch/salchi.png" alt="Salchichas frescas">
                 <div class="card-overlay"></div>
                 <span class="card-badge">Fresco</span>
             </div>
             <div class="card-content">
                 <h2>Salchichas Frescas</h2>
-                <p>Salchichas frescas elaboradas<span> con carne seleccionada y especias naturales, perfectas para asar o freír, manteniendo su jugosidad y frescura.</span></p>
+                <p>Salchichas recién elaboradas<span> con carnes frescas y condimentos naturales, listas para asar, ideales para reuniones familiares, con textura jugosa y sabor intenso.</span></p>
             </div>
         </div>
 
         <div onclick="productos()" class="card-item">
             <div class="card-image-container">
-                <img src="extern-arch/salsadetmate.jpg" alt="Salsa de tomate">
+                <img src="extern-arch/salsa.png" alt="Salsa de tomate artesanal">
                 <div class="card-overlay"></div>
                 <span class="card-badge">Natural</span>
             </div>
@@ -287,18 +290,27 @@
     </div>
 </div>
 
-<!-- Modal Overlay para Filosofía del Chef -->
+<!-- Modal Overlay para Filosofía del Chef con NUEVA ESTRUCTURA -->
 <div class="overlay" id="overlay">
-    <div class="overlay-content">
+    <div class="overlay-content-new">
         <button class="close-btn" id="closeBtn">✕</button>
         
-        <div class="overlay-header">
-            <img src="extern-arch/logo.png" alt="Logo Don Inacio" class="overlay-logo">
-            <h1>Filosofía del Chef</h1>
-            <h2>Fernando Inacio</h2>
+        <!-- SECCIÓN SUPERIOR: Foto + Título -->
+        <div class="overlay-top">
+            <!-- Foto del chef -->
+            <div class="chef-photo">
+                <img src="extern-arch/chef-fernando.jpg" alt="Chef Fernando Inacio">
+            </div>
+            
+            <!-- Título -->
+            <div class="chef-title">
+                <h1>Filosofía del Chef</h1>
+                <h2>Fernando Inacio</h2>
+            </div>
         </div>
         
-        <div class="overlay-body">
+        <!-- SECCIÓN INFERIOR: Texto completo -->
+        <div class="overlay-bottom">
             <div class="philosophy-text">
                 <p>"Mi pasión es <span class="negrita">la transmisión del saber</span>, y no me conformo con dar de comer: <span class="negrita">quiero crear emociones.</span></p>
                 
