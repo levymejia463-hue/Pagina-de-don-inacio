@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
+  <!-- Filled orange circle -->
+  <circle cx="30" cy="30" r="27" fill="#e07b3a"/>
+  <!-- Wheat stalk - vertical line (white) -->
+  <line x1="30" y1="12" x2="30" y2="48" stroke="white" stroke-width="2.2"/>
+  <!-- Wheat grains left (white) -->
+  <ellipse cx="30" cy="20" rx="5.5" ry="3.2" fill="white" transform="rotate(-25 30 20)"/>
+  <ellipse cx="30" cy="28" rx="5.5" ry="3.2" fill="white" transform="rotate(-25 30 28)"/>
+  <ellipse cx="30" cy="36" rx="5.5" ry="3.2" fill="white" transform="rotate(-25 30 36)"/>
+  <!-- Wheat grains right (white) -->
+  <ellipse cx="30" cy="20" rx="5.5" ry="3.2" fill="white" transform="rotate(25 30 20)"/>
+  <ellipse cx="30" cy="28" rx="5.5" ry="3.2" fill="white" transform="rotate(25 30 28)"/>
+  <ellipse cx="30" cy="36" rx="5.5" ry="3.2" fill="white" transform="rotate(25 30 36)"/>
+</svg>

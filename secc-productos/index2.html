@@ -1,188 +1,299 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Productos artesanales portugueses - Mermeladas, embutidos curados, vinos y más en Don Inacio">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        media="print" onload="this.media='all'">
+    <link rel="icon" type="image/png" href="../extern-arch/logo.png">
+    <title>Productos Gourmet - Don Inacio</title>
     <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
-    <title>Productos - Restaurante de Don Inacio</title>
 </head>
+
 <body>
 
-    <!--header-->
-    <div class="sub-header" id="sub-header">
-        <div class="logo">
-            <h1 onclick="volver()">Restaurante de <br><span style="font-size: 1.1rem;">don inacio</span></h1>
+    <!-- ============ HEADER ============ -->
+    <header class="simple-header" id="simpleHeader">
+        <a href="../index.html" class="btn-back" aria-label="Volver al inicio">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span class="back-text">Atrás</span>
+        </a>
+
+        <div class="header-logo">
+            <img src="../extern-arch/logo.png" alt="Don Inacio">
         </div>
 
-        <button class="br btns-menu" onclick="window.location.href='../Menu/index3.html'">ver menu</button>
-        <button class="br btns-reservar" onclick="window.location.href='../reservas/index.html'">reservar</button>
-        
-        <div class="menu-ham" id="manuham">
-            <button class="btn-close" id="close"> X </button>
-            <nav>
+        <a href="../reservas/index.html" class="btn-reserve">
+            <span class="reserve-text">Reservar</span>
+            <span class="material-symbols-outlined">event</span>
+        </a>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero-productos">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-label">Tienda Gourmet</div>
+            <h1 class="hero-title">Nuestros<br>Productos</h1>
+            <p class="hero-subtitle">Artesanía portuguesa con alma, sabores que cuentan historias</p>
+            <button class="hero-scroll"
+                onclick="document.getElementById('productosGrid').scrollIntoView({behavior:'smooth'})">
+                <span class="material-symbols-outlined">expand_more</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============ PRODUCTOS GRID ============ -->
+    <section class="productos-section" id="productosGrid">
+
+        <!-- NATURAL / MERMELADAS -->
+        <div class="category-block" data-category="natural">
+            <div class="category-header">
+                <div class="category-number">I</div>
+                <div class="category-info">
+                    <div class="category-label">Produtos Naturais</div>
+                    <h2 class="category-name">Mermeladas Artesanales</h2>
+                    <p class="category-desc">Elaboradas con ingredientes frescos, cocción lenta y recetas tradicionales
+                        que preservan el sabor auténtico.</p>
+                </div>
+            </div>
+            <div class="products-grid" id="naturalGrid">
+                <!-- Productos se cargan dinámicamente -->
+            </div>
+            <div class="category-footer">
+                <a href="natural/index.html" class="view-all-link">
+                    <span>Ver toda la colección</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- EMBUTIDOS CURADOS -->
+        <div class="category-block" data-category="embutido curado">
+            <div class="category-header">
+                <div class="category-number">II</div>
+                <div class="category-info">
+                    <div class="category-label">Charcutaria</div>
+                    <h2 class="category-name">Embutidos Curados</h2>
+                    <p class="category-desc">Curados artesanalmente siguiendo tradiciones centenarias portuguesas.
+                        Sabores intensos y auténticos.</p>
+                </div>
+            </div>
+            <div class="products-grid" id="embutidoCuradoGrid">
+                <!-- Productos se cargan dinámicamente -->
+            </div>
+            <div class="category-footer">
+                <a href="embutidos-curados/index.html" class="view-all-link">
+                    <span>Ver toda la colección</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- EMBUTIDOS COCIDOS -->
+        <div class="category-block" data-category="embutidos cocidos">
+            <div class="category-header">
+                <div class="category-number">III</div>
+                <div class="category-info">
+                    <div class="category-label">Charcutaria Cocida</div>
+                    <h2 class="category-name">Embutidos Cocidos</h2>
+                    <p class="category-desc">Ahumados con madera natural, 100% carne de cerdo sin aditivos artificiales.
+                        Sabor intenso y auténtico.</p>
+                </div>
+            </div>
+            <div class="products-grid" id="embutidosCocidosGrid">
+                <!-- Productos se cargan dinámicamente -->
+            </div>
+            <div class="category-footer">
+                <a href="embutidos-cocidos/index.html" class="view-all-link">
+                    <span>Ver toda la colección</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SALCHICHAS -->
+        <div class="category-block" data-category="salchichas">
+            <div class="category-header">
+                <div class="category-number">IV</div>
+                <div class="category-info">
+                    <div class="category-label">Salsichas Frescas</div>
+                    <h2 class="category-name">Salchichas Artesanales</h2>
+                    <p class="category-desc">Frescas y naturales, elaboradas con carne seleccionada, especias y hierbas
+                        aromáticas. Sin gluten ni conservantes.</p>
+                </div>
+            </div>
+            <div class="products-grid" id="salchichasGrid">
+                <!-- Productos se cargan dinámicamente -->
+            </div>
+            <div class="category-footer">
+                <a href="salchichas/index.html" class="view-all-link">
+                    <span>Ver toda la colección</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- VINOS -->
+        <div class="category-block" data-category="vinos">
+            <div class="category-header">
+                <div class="category-number">V</div>
+                <div class="category-info">
+                    <div class="category-label">Vinhos & Portos</div>
+                    <h2 class="category-name">Vinos Portugueses</h2>
+                    <p class="category-desc">Selección curada de vinos y Portos de las mejores bodegas de Portugal.
+                        Tradición embotellada.</p>
+                </div>
+            </div>
+            <div class="products-grid" id="vinosGrid">
+                <!-- Productos se cargan dinámicamente -->
+            </div>
+            <div class="category-footer">
+                <a href="vinos/index.html" class="view-all-link">
+                    <span>Ver toda la colección</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- ENCURTIDOS -->
+        <div class="category-block" data-category="encurtidos">
+            <div class="category-header">
+                <div class="category-number">VI</div>
+                <div class="category-info">
+                    <div class="category-label">Conservas Artesanales</div>
+                    <h2 class="category-name">Encurtidos Artesanales</h2>
+                    <p class="category-desc">Elaborados en sal marina 100% natural con vinagre de manzana orgánico.
+                        Sin preservantes ni aditivos.</p>
+                </div>
+            </div>
+            <div class="products-grid" id="encurtidosGrid">
+                <!-- Productos se cargan dinámicamente -->
+            </div>
+            <div class="category-footer">
+                <a href="encurtidos/index.html" class="view-all-link">
+                    <span>Ver toda la colección</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- PASTAS Y SALSAS GOURMET -->
+        <div class="category-block" data-category="pastas">
+            <div class="category-header">
+                <div class="category-number">VII</div>
+                <div class="category-info">
+                    <div class="category-label">Gourmet Artesanal</div>
+                    <h2 class="category-name">Pastas y Salsas Gourmet</h2>
+                    <p class="category-desc">Recetas portuguesas tradicionales. 100% naturales, sin conservantes ni
+                        aditivos.</p>
+                </div>
+            </div>
+            <div class="products-grid" id="pastasGrid">
+                <!-- Productos se cargan dinámicamente -->
+            </div>
+            <div class="category-footer">
+                <a href="pastas/index.html" class="view-all-link">
+                    <span>Ver toda la colección</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SALES -->
+        <div class="category-block" data-category="sales">
+            <div class="category-header">
+                <div class="category-number">VIII</div>
+                <div class="category-info">
+                    <div class="category-label">Condimentos</div>
+                    <h2 class="category-name">Sales Gourmet</h2>
+                    <p class="category-desc">Sales artesanales con mezclas únicas de especias, hierbas y flores. El
+                        toque final perfecto.</p>
+                </div>
+            </div>
+            <div class="products-grid" id="salesGrid">
+                <!-- Productos se cargan dinámicamente -->
+            </div>
+            <div class="category-footer">
+                <a href="sales/index.html" class="view-all-link">
+                    <span>Ver toda la colección</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ============ MODAL PRODUCTO ============ -->
+    <div class="product-modal" id="productModal" aria-hidden="true">
+        <div class="modal-overlay" onclick="cerrarModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="modal-image-wrap">
+                <img id="modalImage" src="" alt="" class="modal-image">
+            </div>
+            <div class="modal-info">
+                <h3 id="modalName" class="modal-name"></h3>
+                <p id="modalDesc" class="modal-desc"></p>
+                <div class="modal-price-row">
+                    <span class="modal-price" id="modalPrice"></span>
+                    <button class="btn-whatsapp" onclick="contactarWhatsapp()">
+                        <span class="material-symbols-outlined">chat</span>
+                        Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="../extern-arch/logo.png" alt="Don Inacio">
+                <p>Cocina portuguesa artesanal<br>desde el corazón</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Navegación</h4>
                 <ul>
                     <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="../galeria-de-fotos/index1.html">Galeria</a></li>
                     <li><a href="../Menu/index3.html">Menú</a></li>
-                    <li><a href="../secc-productos/index2.html">Productos</a></li>
+                    <li><a href="index2.html">Productos</a></li>
+                    <li><a href="../galeria-de-fotos/index1.html">Galería</a></li>
                     <li><a href="../reservas/index.html">Reservar</a></li>
                 </ul>
-            </nav>
-        </div>
-        <button class="openMenu" id="openMenu"><span class="material-symbols-outlined">menu</span></button>
-    </div>
-
-    <!--slider-->
-    <div class="container">
-        <div class="slider">
-            <ul>
-                <li><img src="../extern-arch/paisaje-portada2.webp" alt=""></li>
-                <li><img src="../extern-arch/portada.png" alt=""></li>
-                <li><img src="../extern-arch/paisaje-portada2.webp" alt=""></li>
-                <li><img src="../extern-arch/paisaje-portada2.webp" alt=""></li>
-            </ul>
-        </div>
-        <div class="texto">
-            <h1>productos</h1>
-            <p>Descubre nuestra selección de productos artesanales</p>
-        </div>
-    </div>
-
-    <!--Modal de detalles del producto-->
-    <div class="container1">
-        <div class="detalles" id="detallesDelProducto">
-            <button class="btn-close" onclick="cerrarDetalles()">x</button>
-        </div>
-
-        <!-- Sección Natural -->
-        <div class="category-section">
-            <h2 class="category-title">Natural</h2>
-            <div class="slider-wrapper">
-                <div class="slider-container" id="naturalSlider">
-                    <!-- Los productos se cargarán aquí -->
-                </div>
             </div>
-            <div class="slider-controls">
-                <button class="slider-btn slider-prev" data-category="natural">
-                    <span class="material-symbols-outlined"><</span>
-                </button>
-                <button class="slider-btn slider-next" data-category="natural">
-                    <span class="material-symbols-outlined">></span>
-                </button>
-            </div>
-            <div class="view-more-container">
-                <a href="natural/index.html" class="view-more-btn">Ver todos los productos</a>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><span class="material-symbols-outlined">location_on</span> Santa Ana, El Salvador</li>
+                    <li><span class="material-symbols-outlined">phone</span> +503 6920 4235</li>
+                    <li><span class="material-symbols-outlined">schedule</span> Mar – Dom: 6:00 PM – 10:00 PM</li>
+                </ul>
             </div>
         </div>
-
-        <!-- Sección Embutidos Curados -->
-        <div class="category-section">
-            <h2 class="category-title">Embutidos Curados</h2>
-            <div class="slider-wrapper">
-                <div class="slider-container" id="embutidoCuradoSlider">
-                    <!-- Los productos se cargarán aquí -->
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-btn slider-prev" data-category="embutido curado">
-                    <span class="material-symbols-outlined"><</span>
-                </button>
-                <button class="slider-btn slider-next" data-category="embutido curado">
-                    <span class="material-symbols-outlined">></span>
-                </button>
-            </div>
-            <div class="view-more-container">
-                <a href="embutidos-curados/index.html" class="view-more-btn">Ver todos los productos</a>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Restaurante Don Inacio. Todos los derechos reservados.</p>
         </div>
+    </footer>
 
-        <!-- Sección Embutidos Cocidos -->
-        <div class="category-section">
-            <h2 class="category-title">Embutidos Cocidos</h2>
-            <div class="slider-wrapper">
-                <div class="slider-container" id="embutidosCocidosSlider">
-                    <!-- Los productos se cargarán aquí -->
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-btn slider-prev" data-category="embutidos cocidos">
-                    <span class="material-symbols-outlined"><</span>
-                </button>
-                <button class="slider-btn slider-next" data-category="embutidos cocidos">
-                    <span class="material-symbols-outlined">></span>
-                </button>
-            </div>
-            <div class="view-more-container">
-                <a href="embutidos-cocidos/index.html" class="view-more-btn">Ver todos los productos</a>
-            </div>
-        </div>
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
 
-        <!-- Sección Salchichas -->
-        <div class="category-section">
-            <h2 class="category-title">Salchichas Frescas</h2>
-            <div class="slider-wrapper">
-                <div class="slider-container" id="salchichasSlider">
-                    <!-- Los productos se cargarán aquí -->
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-btn slider-prev" data-category="salchichas">
-                    <span class="material-symbols-outlined"><</span>
-                </button>
-                <button class="slider-btn slider-next" data-category="salchichas">
-                    <span class="material-symbols-outlined">></span>
-                </button>
-            </div>
-            <div class="view-more-container">
-                <a href="salchichas/index.html" class="view-more-btn">Ver todos los productos</a>
-            </div>
-        </div>
-
-        <!-- Sección Vinos y Portos -->
-        <div class="category-section">
-            <h2 class="category-title">Vinos & Portos</h2>
-            <div class="slider-wrapper">
-                <div class="slider-container" id="vinosSlider">
-                    <!-- Los productos se cargarán aquí -->
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-btn slider-prev" data-category="vinos">
-                    <span class="material-symbols-outlined"><</span>
-                </button>
-                <button class="slider-btn slider-next" data-category="vinos">
-                    <span class="material-symbols-outlined">></span>
-                </button>
-            </div>
-            <div class="view-more-container">
-                <a href="vinos/index.html" class="view-more-btn">Ver todos los productos</a>
-            </div>
-        </div>
-
-        <!-- Sección Sales -->
-        <div class="category-section">
-            <h2 class="category-title">Sales Gourmet</h2>
-            <div class="slider-wrapper">
-                <div class="slider-container" id="salesSlider">
-                    <!-- Los productos se cargarán aquí -->
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-btn slider-prev" data-category="sales">
-                    <span class="material-symbols-outlined"><</span>
-                </button>
-                <button class="slider-btn slider-next" data-category="sales">
-                    <span class="material-symbols-outlined">></span>
-                </button>
-            </div>
-            <div class="view-more-container">
-                <a href="sales/index.html" class="view-more-btn">Ver todos los productos</a>
-            </div>
-        </div>
-
-    </div>
-
-    <script src="script2.js"></script>
+    <script src="script2.js" defer></script>
 </body>
+
 </html>

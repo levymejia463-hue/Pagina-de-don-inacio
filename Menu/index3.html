@@ -1,520 +1,1257 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Mejor Comida Portuguesa - Menú</title>
+    <meta name="description" content="Menú Don Inacio — Cocina portuguesa artesanal en Santa Ana, El Salvador.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="icon" type="image/png" href="/extern-arch/logo.png">
+    <title>Menú — Don Inacio | Restaurante Portugués</title>
     <link rel="stylesheet" href="style3.css">
-    <link rel="stylesheet" href="../reservas/style.css">
-    <style>
-        /* Mantener body sin fondo si se desea, pero permitir que sub-header use estilos de reservas/style.css */
-        body { background: none !important; }
-        /* Ocultar contenido de header1 (solicitado) */
-        .header1 { background: transparent !important; backdrop-filter: none !important; padding: 0 !important; border-radius: 0 !important; }
-        .header1 .icon, .header1 h1, .header1 p { display: none !important; }
-    </style>
 </head>
-<body>
-     <div class="sub-header" id="sub-header">
-        <div class="logo">
-                <h1 onclick="volver()">Restaurante de <br><span style="font-size: 1.1rem;">don inacio</span></h1>
+
+<body> <!-- SVG Sprite - Iconos de Alérgenos -->
+
+
+
+
+    <!-- ============ HEADER SIMPLE ============ -->
+    <header class="menu-header" id="menuHeader">
+        <button class="menu-header-back" onclick="history.back()" aria-label="Volver" data-i18n-aria="back-aria">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span data-i18n="back">Atrás</span>
+        </button>
+        <a href="/index.html" class="menu-header-logo" aria-label="Don Inacio inicio">
+            <img src="/extern-arch/logo.png" alt="Don Inacio">
+        </a>
+        <div class="header-right">
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-current" id="langCurrent" aria-haspopup="true" aria-expanded="false">
+                    <span class="lang-flag">🇪🇸</span>
+                    <span class="lang-code">ES</span>
+                    <span class="material-symbols-outlined lang-arrow">expand_more</span>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-option active" data-lang="es">
+                        <span class="lang-flag">🇪🇸</span> Español
+                    </button>
+                    <button class="lang-option" data-lang="pt">
+                        <span class="lang-flag">🇵🇹</span> Português
+                    </button>
+                    <button class="lang-option" data-lang="en">
+                        <span class="lang-flag">🇺🇸</span> English
+                    </button>
+                </div>
+            </div>
+            <a href="/reservas/index.html" class="menu-header-reservar" title="Reservar Mesa" data-i18n="reservar">
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span>Reservar</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="menu-hero">
+        <div class="menu-hero-bg"></div>
+        <div class="menu-hero-content">
+            <div class="menu-hero-label" data-i18n="hero-label">Restaurante Don Inacio</div>
+            <h1 class="menu-hero-title" data-i18n="hero-title">Nuestra<br><em>Cocina</em></h1>
+            <p class="menu-hero-desc" data-i18n="hero-desc">Cocina portuguesa artesanal elaborada con
+                pasión,<br>tradición y los mejores ingredientes del mundo.</p>
+            <a href="/reservas/index.html" class="menu-hero-cta">
+                <span class="material-symbols-outlined">event</span>
+                <span data-i18n="reservar-mesa">Reservar Mesa</span>
+            </a>
+        </div>
+        <div class="menu-hero-scroll">
+            <span class="material-symbols-outlined">keyboard_arrow_down</span>
+        </div>
+    </section>
+
+    <!-- ============ FILTROS ============ -->
+    <nav class="menu-filters-section" aria-label="Categorías del menú">
+        <div class="menu-filters-wrap">
+            <button class="filter-btn active" data-category="all">
+                <span class="material-symbols-outlined">restaurant_menu</span><span data-i18n="filter-all">Todo</span>
+            </button>
+            <button class="filter-btn" data-category="entradas">
+                <span class="material-symbols-outlined">tapas</span><span data-i18n="filter-entradas">Entradas</span>
+            </button>
+            <button class="filter-btn" data-category="mar">
+                <span class="material-symbols-outlined">set_meal</span><span data-i18n="filter-mar">Pescado &amp;
+                    Mariscos</span>
+            </button>
+            <button class="filter-btn" data-category="carnes">
+                <span class="material-symbols-outlined">dinner_dining</span><span
+                    data-i18n="filter-carnes">Carnes</span>
+            </button>
+
+            <button class="filter-btn" data-category="postres">
+                <span class="material-symbols-outlined">cake</span><span data-i18n="filter-postres">Postres</span>
+            </button>
+            <button class="filter-btn" data-category="bebidas">
+                <span class="material-symbols-outlined">local_bar</span><span data-i18n="filter-bebidas">Bebidas</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============ MENÚ PRINCIPAL ============ -->
+    <main class="menu-main">
+
+        <!-- ── ENTRADAS ── -->
+        <section class="menu-category" data-category="entradas" id="cat-entradas">
+            <div class="category-header">
+                <div class="category-header-inner">
+                    <div class="category-label" data-i18n="cat-entradas-label">Aperitivos</div>
+                    <h2 class="category-title" data-i18n="cat-entradas-title">Entradas</h2>
+                    <p class="category-desc" data-i18n="cat-entradas-desc">Aperitivos tradicionales portugueses para
+                        comenzar con el pie derecho</p>
+                </div>
+                <div class="category-ornament">I</div>
+            </div>
+            <div class="dishes-grid">
+
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/0.webp" alt="Pasteis de Bacalhau"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Pasteis de Bacalhau</h3>
+                        <span class="dish-name-pt" data-i18n="dish-pasteis-sub">Croquetas de Bacalao</span>
+                        <p class="dish-desc" data-i18n="dish-pasteis-desc">2 unidades</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$3.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/2-2.webp" alt="Pataniscas de Camarão"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Pataniscas de Camarão</h3>
+                        <p class="dish-desc" data-i18n="dish-pataniscas-desc">2 unidades — Buñuelos a base de camarón,
+                            cebolla, hierbas aromáticas y huevo</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--cg"><img class="allergen-icon" src="/extern-arch/cg.png" alt="Con Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$4.10</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/1.webp" alt="Camarão Jumbo a Chef"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Camarão Jumbo a Chef</h3>
+                        <span class="dish-name-pt" data-i18n="dish-camaro-sub">Camarón Jumbo al estilo chef</span>
+                        <p class="dish-desc" data-i18n="dish-camaro-desc">±450 g — Camarón jumbo salteado en aceite
+                            extra virgen, ajo, romero y cilantro</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$21.50</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/2.webp" alt="Camarão Cozido" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Camarão Cozido</h3>
+                        <p class="dish-desc" data-i18n="dish-camaro-cozido-desc">Camarón cocido con especias, hierbas
+                            aromáticas y salsa cóctel de camarón</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$13.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5 -->
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/3.webp" alt="Carpacho de Mero Curado y Defumado"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Carpacho de Mero Curado y Defumado</h3>
+                        <p class="dish-desc" data-i18n="dish-carpacio-desc">Salsa agridulce, alcaparras y tostadas</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$16.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6 -->
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/4.webp" alt="Salada de Polvo" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Salada de Polvo</h3>
+                        <p class="dish-desc" data-i18n="dish-salada-polvo-desc">Pulpo, encurtido de cebolla, chilli
+                            asado, tomate fresco, ajo confitado y aceite de oliva virgen extra</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$12.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7 -->
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/5.webp"
+                            alt="Ameijoa Branca Importada a Moda de Chef" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Ameijoa Branca Importada a Moda de Chef</h3>
+                        <p class="dish-desc" data-i18n="dish-almeja-desc">Almeja salteada en aceite de oliva extra
+                            virgen, ajo, especias y cilantro</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$11.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8 -->
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/26.webp" alt="Salada de Embutidos y Queso"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Salada de Embutidos y Queso</h3>
+                        <p class="dish-desc" data-i18n="dish-ensalada-desc">Nuca de cerdo, lomo de cerdo, tocineta,
+                            tomate fresco, pimentón asado, aceitunas, queso curado y trocitos de pan tostado</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--cg"><img class="allergen-icon" src="/extern-arch/cg.png" alt="Con Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--cl"><img class="allergen-icon" src="/extern-arch/cl.png" alt="Con Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$11.60</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 9 -->
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/22.png" alt="Pica Pau" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Pica Pau</h3>
+                        <p class="dish-desc" data-i18n="dish-picapau-desc">Carne de cerdo marinada a base de pasta de
+                            chile rojo ahumada, especias y encurtido de vegetales</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$9.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 10 -->
+                <article class="dish-card dish-card--light">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/MENUv2/8.webp" alt="Pão Caseiro de Massa Madre" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Pão Caseiro de Massa Madre</h3>
+                        <p class="dish-desc" data-i18n="dish-pao-desc">Pan casero típico portugués, hecho de masa madre
+                        </p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--cg"><img class="allergen-icon" src="/extern-arch/cg.png" alt="Con Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$2.80</span>
+                        </div>
+                    </div>
+                </article>
+
+
+            </div>
+        </section>
+
+        <!-- ── PESCADO Y MARISCOS ── -->
+        <section class="menu-category" data-category="mar" id="cat-mar">
+            <div class="category-header">
+                <div class="category-header-inner">
+                    <div class="category-label" data-i18n="cat-mar-label">Del Atlántico</div>
+                    <h2 class="category-title" data-i18n="cat-mar-title">Pescado &amp; Mariscos</h2>
+                    <p class="category-desc" data-i18n="cat-mar-desc">Los mejores tesoros del mar, cocinados a la manera
+                        tradicional portuguesa</p>
+                </div>
+                <div class="category-ornament">II</div>
+            </div>
+            <div class="dishes-grid">
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/6.webp" alt="Cataplana de Peixe e Mariscos"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Cataplana de Peixe e Mariscos</h3>
+                        <p class="dish-desc" data-i18n="dish-cataplana-desc">Cataplana de pescado y mariscos — para dos
+                            personas</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$58.60</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/7.webp" alt="Arroz de Mariscos Don Inacio"
+                            loading="lazy">
+                        <div class="dish-card-badge">Especial</div>
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Arroz de Mariscos Don Inacio</h3>
+                        <p class="dish-desc" data-i18n="dish-arroz-mar-desc">2 personas — Arroz con mariscos, langosta y
+                            camarón</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$63.50</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/8.webp"
+                            alt="Feijoada de Peixe e Mariscos Don Inacio" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Feijoada de Peixe e Mariscos Don Inacio</h3>
+                        <p class="dish-desc" data-i18n="dish-feijoada-peixe-desc">Frijol blanco con camarón, pescado,
+                            almejas y calamar</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$32.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/9.webp" alt="Bacalhau a Lagareiro"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Bacalhau a Lagareiro</h3>
+                        <p class="dish-desc" data-i18n="dish-bacalhau-desc">Bacalao al horno con aceite de oliva extra
+                            virgen y cebolla confitada
+                        </p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$26.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/10.webp" alt="Bacalhau a Braz" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Bacalhau a Braz</h3>
+                        <p class="dish-desc" data-i18n="dish-bacalhau-braz-desc">Bacalao salteado en aceite de oliva
+                            extra virgen, con ajo fresco, cebolla caramelizada, aceitunas negras, huevo, perejil y
+                            tomate cherry</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$22.60</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/28.webp" alt="Polvo a Lagareiro" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Polvo a Lagareiro</h3>
+                        <p class="dish-desc" data-i18n="dish-polvo-desc">Tentáculo de pulpo al horno con aceite de
+                            oliva, ajo y cebolla</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$26.50</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/11.webp" alt="Linguini Peixe e Frutos do Mar"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Linguini Peixe y Frutos do Mar</h3>
+                        <p class="dish-desc" data-i18n="dish-linguini-desc">Pasta linguini, pescado, camarón, mejillón,
+                            almeja blanca y calamar
+                        </p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--cg"><img class="allergen-icon" src="/extern-arch/cg.png" alt="Con Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$21.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/27.webp" alt="Arroz de Polvo" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Arroz de Polvo</h3>
+                        <p class="dish-desc" data-i18n="dish-arroz-polvo-desc">Arroz con pulpo troceado marinado con
+                            aceite de oliva</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$24.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/12.webp" alt="Bacalhau a Don Inacio"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Bacalhau a Don Inacio</h3>
+                        <p class="dish-desc" data-i18n="dish-bacalhau-don-inacio-desc">Bacalao en trocitos horneado, con
+                            papa frita, camote frito, cebolla caramelizada, jengibre, perejil y hierbas aromáticas,
+                            gratinado con queso. Gluten Free / Lactose Free</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$24.50</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/13.webp" alt="Arroz de Camarão" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Arroz de Camarão</h3>
+                        <p class="dish-desc" data-i18n="dish-arroz-camaro-desc">Arroz con camarones pelados y enteros
+                        </p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$22.60</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card ">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/14.webp" alt="Bife de Atum Salsa Vinho do Porto"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Bife de Atum Salsa Vinho do Porto</h3>
+                        <span class="dish-name-pt" data-i18n="dish-atum-sub">400 g</span>
+                        <p class="dish-desc" data-i18n="dish-atum-desc">Steak de atún fresco con salsa de vino de Porto
+                            y papas salteadas</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$26.80</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ── CARNES ── -->
+        <section class="menu-category" data-category="carnes" id="cat-carnes">
+            <div class="category-header">
+                <div class="category-header-inner">
+                    <div class="category-label" data-i18n="cat-carnes-label">De la Tierra</div>
+                    <h2 class="category-title" data-i18n="cat-carnes-title">Carnes</h2>
+                    <p class="category-desc" data-i18n="cat-carnes-desc">Platos fuertes con técnicas y recetas
+                        tradicionales portuguesas</p>
+                </div>
+                <div class="category-ornament">III</div>
+            </div>
+            <div class="dishes-grid">
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/24.png" alt="Carne de Vaca a Açoriana"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Carne de Vaca a Açoriana</h3>
+                        <span class="dish-name-pt" data-i18n="dish-vaca-sub">Azores, Portugal</span>
+                        <p class="dish-desc" data-i18n="dish-vaca-desc">Carne de res marinada en vino tinto y especias
+                            al horno</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$28.60</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/29.webp" alt="Costela de Porco Fumada"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Costela de Porco Fumada</h3>
+                        <p class="dish-desc" data-i18n="dish-costela-desc">400g — Costilla de cerdo ahumada con papa
+                            salteada con bacon</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$18.50</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/20.webp" alt="Ensopado de Borrego"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Ensopado de Borrego</h3>
+                        <p class="dish-desc" data-i18n="dish-ensopado-desc">Estofado de cordero acompañado de papa al
+                            horno</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$32.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/21.webp" alt="Borrego Assado no Forno"
+                            loading="lazy">
+                        <div class="dish-card-badge dish-card-badge--gold" data-i18n="badge-reserva">Solo por Reserva
+                        </div>
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Borrego Assado no Forno</h3>
+                        <p class="dish-desc" data-i18n="dish-borrego-desc">Cordero al horno con papitas horneadas.
+                            Requiere reserva con 48h de anticipación</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$62.90</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/23.webp" alt="Carne de Porco a Alentejana"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Carne de Porco a Alentejana</h3>
+                        <span class="dish-name-pt" data-i18n="dish-porco-sub">Alentejo, Portugal</span>
+                        <p class="dish-desc" data-i18n="dish-porco-desc">Cerdo marinado en pasta de chilli dulce ahumada
+                            con papas</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$18.60</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/15.webp" alt="Arroz de Pato no Forno"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Arroz de Pato no Forno</h3>
+                        <p class="dish-desc" data-i18n="dish-pato-desc">Arroz de pato al horno con bacon y chorizo</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$23.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/16.webp" alt="Posta de Vitela a Moda do Chef"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Posta de Vitela a Moda do Chef (450 g)</h3>
+                        <p class="dish-desc" data-i18n="dish-posta-desc">500g — Lomo de ternera a la parrilla con papita
+                            asada, aceite de oliva, ajo y hierbas aromáticas</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$26.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/17.webp" alt="Medalhões de Vitela"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Medalhões de Vitela</h3>
+                        <p class="dish-desc" data-i18n="dish-medalhoes-desc">Medallones de filete de ternera con salsa
+                            de vino de Porto</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$19.60</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/MENUv2/33.webp" alt="Massa a Lavrador" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Massa a Lavrador</h3>
+                        <p class="dish-desc" data-i18n="dish-massa-desc">Pasta con carnes ahumadas, frijoles rojos y
+                            vegetales</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--cg"><img class="allergen-icon" src="/extern-arch/cg.png" alt="Con Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$17.60</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/30.webp" alt="Feijoada Transmontana"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Feijoada Transmontana</h3>
+                        <p class="dish-desc" data-i18n="dish-feijoada-desc">Frijoles con carnes ahumadas y chorizo</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$19.50</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/25.webp"
+                            alt="Tabla de Embutidos y Quesos Grande" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Tabla de Embutidos y Quesos <span class="dish-badge">Grande</span></h3>
+                        <p class="dish-desc" data-i18n="dish-tabla-grande-desc">Nuca curada, lomo curado, tocineta,
+                            jamón cocido ahumado, bresaola, salame al ajo, chorizo picante, magret de pato curado, bacon
+                            ahumado, chorizo portugués ahumado, queso curado, mermelada de vegetales, encurtidos y
+                            aceitunas</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--cl"><img class="allergen-icon" src="/extern-arch/cl.png" alt="Con Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$65.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/25.webp"
+                            alt="Tabla de Embutidos y Quesos Mediana" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Tabla de Embutidos y Quesos <span
+                                class="dish-badge dish-badge--outline">Mediana</span></h3>
+                        <p class="dish-desc" data-i18n="dish-tabla-med-desc">Nuca curada, lomo curado, tocineta, jamón
+                            cocido, salame al ajo, chorizo picante, queso curado, mermelada de vegetales y encurtidos.
+                            Plato típico de todo Portugal</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--cl"><img class="allergen-icon" src="/extern-arch/cl.png" alt="Con Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$36.00</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ── POSTRES ── -->
+        <section class="menu-category menu-category--postres" data-category="postres" id="cat-postres">
+            <div class="category-header">
+                <div class="category-header-inner">
+                    <div class="category-label" data-i18n="cat-postres-label">Dulces Tradicionales</div>
+                    <h2 class="category-title" data-i18n="cat-postres-title">Postres</h2>
+                    <p class="category-desc" data-i18n="cat-postres-desc">El dulce final de una experiencia gastronómica
+                        inolvidable</p>
+                </div>
+                <div class="category-ornament">V</div>
+            </div>
+            <div class="dishes-grid">
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/18.webp" alt="Pastel de Nata" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Pastel de Nata</h3>
+                        <p class="dish-desc" data-i18n="dish-nata-desc">Pastel típico de Portugal a base de crema de
+                            huevos</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--cg"><img class="allergen-icon" src="/extern-arch/cg.png" alt="Con Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--cl"><img class="allergen-icon" src="/extern-arch/cl.png" alt="Con Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$1.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/19.webp" alt="Queijada da Madeira"
+                            loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Queijada da Madeira</h3>
+                        <p class="dish-desc" data-i18n="dish-quijada-desc">Tartaleta portuguesa hecha con queso fresco
+                        </p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--cg"><img class="allergen-icon" src="/extern-arch/cg.png" alt="Con Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--cl"><img class="allergen-icon" src="/extern-arch/cl.png" alt="Con Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$5.60</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="" alt="Tarte de Amêndoa" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Tarte de Amêndoa</h3>
+                        <p class="dish-desc" data-i18n="dish-tarte-desc">Tarta de almendras</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--sl"><img class="allergen-icon" src="/extern-arch/sl.png" alt="Sin Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$6.40</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="/extern-arch/imagenes%20menu/menumenu/31.webp"
+                            alt="Seducción de Café y Chocolate Negro" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Seducción de Café y Chocolate Negro</h3>
+                        <p class="dish-desc" data-i18n="dish-seducao-desc">Postre con crema, chocolate, café y cocoa
+                        </p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--sg"><img class="allergen-icon" src="/extern-arch/sg.png" alt="Sin Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--cl"><img class="allergen-icon" src="/extern-arch/cl.png" alt="Con Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$5.80</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="dish-card">
+                    <div class="dish-card-image">
+                        <img src="" alt="Semifrío con Compota de Vegetales" loading="lazy">
+                    </div>
+                    <div class="dish-card-body">
+                        <h3 class="dish-name">Semifrío con Compota de Vegetales</h3>
+                        <p class="dish-desc" data-i18n="dish-semifrio-desc">Postre frío con crema, mermelada de
+                            vegetales y galleta</p>
+                        <div class="dish-allergens">
+                            <span class="allergen-wrap allergen-wrap--cg"><img class="allergen-icon" src="/extern-arch/cg.png" alt="Con Gluten"><span class="allergen-text"></span></span>
+                            <span class="allergen-wrap allergen-wrap--cl"><img class="allergen-icon" src="/extern-arch/cl.png" alt="Con Lactosa"><span class="allergen-text"></span></span>
+                        </div>
+                        <div class="dish-card-footer">
+                            <span class="dish-price">$4.60</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ── BEBIDAS ── -->
+        <section class="menu-category" data-category="bebidas" id="cat-bebidas">
+            <div class="category-header">
+                <div class="category-header-inner">
+                    <div class="category-label" data-i18n="cat-bebidas-label">Nuestra Selección</div>
+                    <h2 class="category-title" data-i18n="cat-bebidas-title">Bebidas</h2>
+                    <p class="category-desc" data-i18n="cat-bebidas-desc">Cócteles portugueses, vinos y refrescos para
+                        acompañar su experiencia</p>
+                </div>
+                <div class="category-ornament">VI</div>
+            </div>
+            <!-- ===== SUBSECCIÓN: APERITIVOS ===== -->
+            <div class="bebidas-subsection">
+                <div class="bebidas-subsection-header">
+                    <span class="bebidas-subsection-ornament">—</span>
+                    <h3 class="bebidas-subsection-title" data-i18n="bebidas-aperitivos">Aperitivos</h3>
+                    <span class="bebidas-subsection-ornament">—</span>
+                </div>
+                <div class="dishes-grid">
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Poncha de Limón</h3>
+                            <p class="dish-desc">Cóctel tradicional portugués de limón</p>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Copa</span> $4.50</span>
+                                <span class="bebidas-price-sep">·</span>
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Jarra 1 L</span>
+                                    $16.50</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Poncha de Mandarina</h3>
+                            <p class="dish-desc">Cóctel tradicional portugués de mandarina</p>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Copa</span> $4.80</span>
+                                <span class="bebidas-price-sep">·</span>
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Jarra 1 L</span>
+                                    $17.80</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Porto Ruby</h3>
+                            <p class="dish-desc">Vino de Porto estilo Ruby</p>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Copa</span> $4.80</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Porto Tawny 10 años</h3>
+                            <p class="dish-desc">Vino de Porto envejecido 10 años, estilo Tawny</p>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Copa</span> $7.50</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
             </div>
 
-            <button class="br btns-reservar" onclick="window.location.href='../reservas/index.html'">reservar</button>
-            
-            <div class="menu-ham" id="manuham">
-                <button class="btn-close" id="close"> X </button>
-                <nav>
-                    <ul>
-                        <li><a href="/index.html">Inicio</a></li>
-                        <li><a href="/galeria-de-fotos/index1.html">Galeria</a></li>
-                        <li><a href="/Menu/index3.html">Menú</a></li>
-                        <li><a href="/secc-productos/index2.html">Productos</a></li>
-                        <li><a href="/reservas/index.html">Reservar</a></li>
-                    </ul>
-                </nav>
+            <!-- ===== SUBSECCIÓN: AGUA Y SODA ===== -->
+            <div class="bebidas-subsection">
+                <div class="bebidas-subsection-header">
+                    <span class="bebidas-subsection-ornament">—</span>
+                    <h3 class="bebidas-subsection-title" data-i18n="bebidas-agua">Agua y Soda</h3>
+                    <span class="bebidas-subsection-ornament">—</span>
+                </div>
+                <div class="dishes-grid">
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Agua Mineral</h3>
+                            <p class="dish-desc">660 ml</p>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Botella</span> $1.60</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Coca Cola</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Lata</span> $1.70</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Coca Cola Light</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Lata</span> $1.70</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Sprite</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Lata</span> $1.70</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Fanta</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Lata</span> $1.70</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
             </div>
-            <button class="openMenu" id="openMenu"><span class="material-symbols-outlined">menu</span></button>
+
+            <!-- ===== SUBSECCIÓN: VINO Y SANGRÍA ===== -->
+            <div class="bebidas-subsection">
+                <div class="bebidas-subsection-header">
+                    <span class="bebidas-subsection-ornament">—</span>
+                    <h3 class="bebidas-subsection-title" data-i18n="bebidas-vino">Vino y Sangría</h3>
+                    <span class="bebidas-subsection-ornament">—</span>
+                </div>
+                <div class="dishes-grid">
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Vino Tinto Piriquita</h3>
+                            <p class="dish-desc">Castelão, Trincadeira, Tempranillo — Portugal</p>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">0.75 L</span> $39.80</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Vino Tinto Albali</h3>
+                            <p class="dish-desc">Syrah, Tempranillo — España</p>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">0.75 L</span> $34.60</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Vino Blanco Castillo de Olite</h3>
+                            <p class="dish-desc">Viura / Chardonnay — España</p>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">0.75 L</span> $32.80</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Vino Blanco Isla Negra</h3>
+                            <p class="dish-desc">Chardonnay — Chile</p>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">0.75 L</span> $28.10</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Sangría Roja</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">1 Litro</span> $14.60</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Sangría Blanca</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">1 Litro</span> $15.50</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <!-- ===== SUBSECCIÓN: VINO BLANCO / TINTO Y SANGRÍA (COPA) ===== -->
+            <div class="bebidas-subsection">
+                <div class="bebidas-subsection-header">
+                    <span class="bebidas-subsection-ornament">—</span>
+                    <h3 class="bebidas-subsection-title" data-i18n="bebidas-copa">Vino Blanco / Tinto y Sangría
+                        &nbsp;&bull;&nbsp; Copa</h3>
+                    <span class="bebidas-subsection-ornament">—</span>
+                </div>
+                <div class="dishes-grid">
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Sangría Roja</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Copa</span> $4.60</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Sangría Blanca</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Copa</span> $4.80</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Vino Tinto Cabernet Sauvignon</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Copa</span> $4.20</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish-card ">
+                        <div class="dish-card-body">
+                            <h3 class="dish-name">Vino Blanco Sauvignon Blanc</h3>
+                            <div class="dish-card-footer bebidas-price-row">
+                                <span class="bebidas-price-item"><span class="bebidas-tag">Copa</span> $4.20</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ============ BANDA RESERVA ============ -->
+    <section class="reserva-band">
+        <div class="reserva-band-inner">
+            <div class="reserva-band-text">
+                <div class="reserva-band-label" data-i18n="reserva-label">¿Listo para vivir la experiencia?</div>
+                <h2 class="reserva-band-title" data-i18n="reserva-title">Reserve su mesa</h2>
+                <p data-i18n="reserva-desc">Llámenos o escríbanos, estaremos encantados de recibirle</p>
+            </div>
+            <div class="reserva-band-actions">
+                <a href="/reservas/index.html" class="reserva-btn-primary">
+                    <span class="material-symbols-outlined">event</span>
+                    <span data-i18n="reservar-ahora">Reservar Ahora</span>
+                </a>
+                <a href="tel:+50369204235" class="reserva-btn-secondary">
+                    <span class="material-symbols-outlined">phone</span>
+                    +503 6920 4235
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="/extern-arch/logo.png" alt="Don Inacio">
+                <p data-i18n="footer-brand-desc">Cocina portuguesa artesanal<br>desde el corazón</p>
+            </div>
+            <div class="footer-nav">
+                <h4 data-i18n="footer-nav-title">Navegación</h4>
+                <ul>
+                    <li><a href="/index.html" data-i18n="nav-inicio">Inicio</a></li>
+                    <li><a href="/Menu/index3.html" data-i18n="nav-menu">Menú</a></li>
+                    <li><a href="/secc-productos/index2.html" data-i18n="nav-productos">Productos</a></li>
+                    <li><a href="/galeria-de-fotos/index1.html" data-i18n="nav-galeria">Galería</a></li>
+                    <li><a href="/reservas/index.html" data-i18n="nav-reservar">Reservar</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 data-i18n="footer-contact-title">Contacto</h4>
+                <ul>
+                    <li><span class="material-symbols-outlined">location_on</span> <span
+                            data-i18n="footer-location">Santa Ana, El Salvador</span></li>
+                    <li><span class="material-symbols-outlined">phone</span> +503 7276 0109</li>
+                    <li><span class="material-symbols-outlined">schedule</span> <span data-i18n="footer-hours">Mar –
+                            Dom: 6:00 PM – 10:00 PM</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="footer-copy">&copy; 2026 Restaurante Don Inacio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+    <!-- ============ DISH DETAIL MODAL ============ -->
+    <div class="dish-modal-overlay" id="dishModalOverlay" role="dialog" aria-modal="true"
+        aria-label="Detalle del plato">
+        <div class="dish-modal" id="dishModal">
+            <!-- Close button -->
+            <button class="dish-modal-close" id="dishModalClose" aria-label="Cerrar">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <!-- Left: image -->
+            <div class="dish-modal-image-panel">
+                <div class="dish-modal-image-wrap">
+                    <img src="" alt="" id="dishModalImg">
+                    <div class="dish-modal-img-overlay"></div>
+                </div>
+                <div class="dish-modal-badge-wrap" id="dishModalBadgeWrap">
+                    <span class="dish-modal-badge" id="dishModalBadge"></span>
+                </div>
+            </div>
+
+            <!-- Right: info -->
+            <div class="dish-modal-info-panel">
+                <div class="dish-modal-category" id="dishModalCategory"></div>
+                <h2 class="dish-modal-name" id="dishModalName"></h2>
+                <p class="dish-modal-subtitle" id="dishModalSubtitle"></p>
+
+                <div class="dish-modal-divider"></div>
+
+                <p class="dish-modal-desc" id="dishModalDesc"></p>
+
+                <div class="dish-modal-allergens" id="dishModalAllergens"></div>
+
+                <div class="dish-modal-footer">
+                    <div class="dish-modal-price-block">
+                        <span class="dish-modal-price-label" data-i18n="modal-precio">Precio</span>
+                        <span class="dish-modal-price" id="dishModalPrice"></span>
+                    </div>
+                    <a href="/reservas/index.html" class="dish-modal-cta">
+                        <span class="material-symbols-outlined">event</span>
+                        <span data-i18n="reservar-mesa">Reservar Mesa</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <button class="index-button" onclick="toggleIndex()">📑 Índice</button>
 
-    <!-- Modal de Detalles del Plato -->
-    <div class="dish-modal" id="dishModal" onclick="closeDishModalOnBackdrop(event)">
-        <div class="dish-modal-content">
-            <span class="dish-modal-close" onclick="closeDishModal()">&times;</span>
-            
-            <div id="dishModalImageContainer">
-                <!-- La imagen se insertará aquí dinámicamente -->
-            </div>
-
-            <div class="dish-modal-body">
-                <div class="dish-modal-header">
-                    <h2 class="dish-modal-title" id="dishModalTitle">Nombre del Plato</h2>
-                    <div class="dish-modal-price" id="dishModalPrice">$0.00</div>
-                    <span class="dish-modal-category" id="dishModalCategory">Categoría</span>
-                </div>
-
-                <div class="dish-modal-section" id="dishDescriptionSection">
-                    <h3 class="dish-modal-section-title">Descripción</h3>
-                    <p class="dish-modal-description" id="dishModalDescription"></p>
-                </div>
-
-                <div class="dish-modal-section" id="dishInfoSection" style="display: none;">
-                    <h3 class="dish-modal-section-title">Información</h3>
-                    <div class="dish-modal-info-grid" id="dishModalInfo"></div>
-                </div>
-
-                <div class="dish-modal-section" id="dishNotesSection" style="display: none;">
-                    <h3 class="dish-modal-section-title">Nota del Chef</h3>
-                    <div class="dish-modal-notes" id="dishModalNotes"></div>
-                </div>
-
-                <div class="dish-modal-section" id="dishTagsSection" style="display: none;">
-                    <h3 class="dish-modal-section-title">Características</h3>
-                    <div class="dish-modal-tags" id="dishModalTags"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal del Índice -->
-    <div class="index-modal" id="indexModal" onclick="closeIndexOnBackdrop(event)">
-        <div class="index-content">
-            <span class="index-close" onclick="toggleIndex()">&times;</span>
-            <h2 class="index-title">Índice del Menú</h2>
-            <ul class="index-list">
-                <li class="index-item" onclick="goToPage(1); toggleIndex();">
-                    <div class="index-item-title">Entradas</div>
-                    <div class="index-item-subtitle">Carpacio, Croquetas, Camarones y más</div>
-                </li>
-                <li class="index-item" onclick="goToPage(2); toggleIndex();">
-                    <div class="index-item-title">Entradas (Cont.)</div>
-                    <div class="index-item-subtitle">Tapas, Quesos y Especialidades</div>
-                </li>
-                <li class="index-item" onclick="goToPage(3); toggleIndex();">
-                    <div class="index-item-title">Pescado y Mariscos</div>
-                    <div class="index-item-subtitle">Cataplana, Bacalhau, Arroz de Mariscos</div>
-                </li>
-                <li class="index-item" onclick="goToPage(4); toggleIndex();">
-                    <div class="index-item-title">Pescado y Mariscos (Cont.)</div>
-                    <div class="index-item-subtitle">Pulpo, Linguini, Atún y más</div>
-                </li>
-                <li class="index-item" onclick="goToPage(5); toggleIndex();">
-                    <div class="index-item-title">Carnes</div>
-                    <div class="index-item-subtitle">Costilla, Cordero, Ternera</div>
-                </li>
-                <li class="index-item" onclick="goToPage(6); toggleIndex();">
-                    <div class="index-item-title">Carnes (Cont.)</div>
-                    <div class="index-item-subtitle">Pato, Cerdo, Especialidades</div>
-                </li>
-                <li class="index-item" onclick="goToPage(7); toggleIndex();">
-                    <div class="index-item-title">Postres</div>
-                    <div class="index-item-subtitle">Pastel de Nata, Tartes y Dulces</div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="menu-container">
-        <!-- Header: usar el mismo estilo que la sección de reservas -->
-        <div class="header1"></div>
-
-
-        <!-- Página 1: Entradas (Parte 1) -->
-        <div class="page active" data-page="1">
-            <h2 class="page-title">Entradas</h2>
-            <p class="page-subtitle">Aperitivos Tradicionales Portugueses</p>
-
-            <div class="menu-section">
-                <div class="menu-item">
-                    <div class="item-image-container">
-                        <img src="../extern-arch/MENUv2/3.jpg" alt="Pasteis de Bacalhau" class="item-image">
-                        <div class="item-image-placeholder" style="display:none;">🥟</div>
-                    </div>
-                    <div class="item-content">
-                        <div class="item-info">
-                            <div class="item-name">PASTEIS DE BACALHAU — CROQUETAS DE BACALAU</div>
-                            <div class="item-description">2 unidades</div>
-                        </div>
-                        <div class="item-price">$3.80</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-image-container">
-                        <img src="../extern-arch/MENUv2/4.jpg" alt="Camarão Jumbo a Chef" class="item-image">
-                        <div class="item-image-placeholder" style="display:none;">🦐</div>
-                    </div>
-                    <div class="item-content">
-                        <div class="item-info">
-                            <div class="item-name">CAMARÃO JUMBO A CHEF</div>
-                            <div class="item-description">Camarón jumbo al estilo chef — aprox. 500g</div>
-                        </div>
-                        <div class="item-price">$21.50</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-image-container">
-                        <img src="../extern-arch/MENUv2/5.jpg" alt="Carpacio de Pulpo" class="item-image">
-                        <div class="item-image-placeholder" style="display:none;">🐙</div>
-                    </div>
-                    <div class="item-content">
-                        <div class="item-info">
-                            <div class="item-name">CARPACIO DE PULPO</div>
-                            <div class="item-description">Con salsa de vinagre, miel, nueces y tostadas</div>
-                        </div>
-                        <div class="item-price">$18.30</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-image-container">
-                        <img src="../extern-arch/MENUv2/6.jpg" alt="Ensalada de Embutidos" class="item-image">
-                        <div class="item-image-placeholder" style="display:none;">🥗</div>
-                    </div>
-                    <div class="item-content">
-                        <div class="item-info">
-                            <div class="item-name">ENSALADA DE EMBUTIDOS Y QUESOS CURADOS</div>
-                            <div class="item-description">Ensalada de embutidos curados y quesos — ideal para compartir</div>
-                        </div>
-                        <div class="item-price">$11.60</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-image-container">
-                        <img src="../extern-arch/MENUv2/7.jpg" alt="Pica Pau" class="item-image">
-                        <div class="item-image-placeholder" style="display:none;">🥘</div>
-                    </div>
-                    <div class="item-content">
-                        <div class="item-info">
-                            <div class="item-name">PICA PAU</div>
-                            <div class="item-description">Carne de cerdo marinada con pasta de chile rojo, especias y vegetales encurtidos</div>
-                        </div>
-                        <div class="item-price">$9.80</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-image-container">
-                        <img src="../extern-arch/MENUv2/8.jpg" alt="Pão Caseiro" class="item-image">
-                        <div class="item-image-placeholder" style="display:none;">🍞</div>
-                    </div>
-                    <div class="item-content">
-                        <div class="item-info">
-                            <div class="item-name">PÃO CASEIRO DE MASSA MADRE</div>
-                            <div class="item-description">Pan casero de masa madre, típico de Madeira</div>
-                        </div>
-                        <div class="item-price">$2.80</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Página 2: Entradas (Parte 2) -->
-        <div class="page" data-page="2">
-            <h2 class="page-title">Entradas</h2>
-            <p class="page-subtitle">Continuación</p>
-
-            <div class="menu-section">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">PATANISCAS DE CAMARAO</div>
-                        <div class="item-description">Buñuelos de camarón</div>
-                    </div>
-                    <div class="item-price">$4.10</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">CARPACIO DE BOCA COLORADO CURADO / AHUMADO</div>
-                        <div class="item-description">Salsa Agridulce, alcaparras y tostadas</div>
-                    </div>
-                    <div class="item-price">$16.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">ALMEJA BLANCA IMPORTADA A LA MODA DEL CHEF</div>
-                        <div class="item-description">Almeja salteada en aceite de oliva extra Virgen, ajo, cilantro</div>
-                    </div>
-                    <div class="item-price">$12.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">TABLA DE TAPAS Y QUESOS (GRANDE)</div>
-                        <div class="item-description">Nuca curada, lomo Curado, Tocineta, Jamón Cocido ahumado, Bresaola Salame Ajo, Chorizo Picante, Magre de Pato curado, bacon ahumado, chourizo Portugués ahumado, queso curado, mermelada de Vegetales, encurtido de vegetales y aceitunas</div>
-                    </div>
-                    <div class="item-price">$65.00</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">TABLA DE TAPAS Y QUESOS (MEDIANA)</div>
-                        <div class="item-description">Nuca curada, lomo Curado, Tocineta, Jamón Cocido, Salame Ajo, Chorizo Picante, queso curado, mermelada de vegetales, encurtido de vegetales</div>
-                    </div>
-                    <div class="item-price">$36.00</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Página 3: Pescado y Mariscos (Parte 1) -->
-        <div class="page" data-page="3">
-            <h2 class="page-title">Pescado y Mariscos</h2>
-            <p class="page-subtitle">Platos Fuertes del Mar</p>
-
-            <div class="menu-section">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">CATAPLANA DE PEIXE E MARISCOS</div>
-                        <div class="item-description">Cataplana de pescado y mariscos para dos personas</div>
-                    </div>
-                    <div class="item-price">$58.60</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">ARROZ DE MARISCOS A DON IÑACIO</div>
-                        <div class="item-description">2 Pers. Langosta, camarón Jumbo, camarón 16/20, navajas, almeja blanca, caracol y aros de calamar</div>
-                    </div>
-                    <div class="item-price">$63.50</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">FEIJOADA DE PEIXE E MARISCOS DON INACIO</div>
-                        <div class="item-description">Frijolada de pescado y mariscos con frijol blanco, Camarón, almeja blanca, aro de calamar, mejillones y caracol</div>
-                    </div>
-                    <div class="item-price">$32.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">BACALHAU A LAGAREIRO</div>
-                        <div class="item-description">Bacalao al horno en Aceite de Oliva Virgen Extra y papitas horneadas</div>
-                    </div>
-                    <div class="item-price">$26.80</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Página 4: Pescado y Mariscos (Parte 2) -->
-        <div class="page" data-page="4">
-            <h2 class="page-title">Pescado y Mariscos</h2>
-            <p class="page-subtitle">Continuación</p>
-
-            <div class="menu-section">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">POLVO A LAGAREIRO</div>
-                        <div class="item-description">Pulpo al horneado en aceite de Oliva Virgen Extra, y papitas horneadas</div>
-                    </div>
-                    <div class="item-price">$26.50</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">LINGUINI PEIXE E FRUTOS DO MAR</div>
-                        <div class="item-description">Pasta linguini, pescado, camarón, mejillón, almeja blanca y calamar</div>
-                    </div>
-                    <div class="item-price">$21.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">ARROZ DE POLVO</div>
-                        <div class="item-description">Arroz de pulpo y camarón</div>
-                    </div>
-                    <div class="item-price">$25.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">ARROZ DE TAMBORIL</div>
-                        <div class="item-description">Rico arroz de pescado importado (RAPE)</div>
-                    </div>
-                    <div class="item-price">$21.50</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">ARROZ DE CAMARÃO</div>
-                        <div class="item-description">Arroz de camarones</div>
-                    </div>
-                    <div class="item-price">$23.90</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">BIFE DE ATUM SALSA VINHO DO PORTO</div>
-                        <div class="item-description">400 Grs. Steak de Atún fresco importado, Salsa al vino PORTO y puré de papa. Plato típico de la isla Portuguesa MADEIRA</div>
-                    </div>
-                    <div class="item-price">$26.80</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Página 5: Carnes (Parte 1) -->
-        <div class="page" data-page="5">
-            <h2 class="page-title">Carnes</h2>
-            <p class="page-subtitle">Platos Fuertes de Carne</p>
-
-            <div class="menu-section">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">CARNE DE VACA A AÇORIANA</div>
-                        <div class="item-description">Rica Carne de rez al horno acompañado con papa horneada. Plato típico de la Isla Portuguesa, AZORES</div>
-                    </div>
-                    <div class="item-price">$28.60</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">COSTELA DE PORCO FUMADA</div>
-                        <div class="item-description">400 Grs. Costilla de cerdo ahumada con papa salteada con bacon</div>
-                    </div>
-                    <div class="item-price">$18.50</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">ENSOPADO DE BORREGO</div>
-                        <div class="item-description">Estofado de Cordero acompañado de papa al horno</div>
-                    </div>
-                    <div class="item-price">$32.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">BORREGO ASSADO NO FORNO</div>
-                        <div class="item-description">Únicamente por reserva. Cordero al Horno, acompañado de papitas horneadas</div>
-                    </div>
-                    <div class="item-price">$62.90</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">CARNE DE PORCO A ALENTEJANA</div>
-                        <div class="item-description">Carne de cerdo marinada en pasta de chili dulce, con papa frita en cubitos, Almeja Blanca Importada y encurtidos</div>
-                    </div>
-                    <div class="item-price">$18.60</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Página 6: Carnes (Parte 2) -->
-        <div class="page" data-page="6">
-            <h2 class="page-title">Carnes</h2>
-            <p class="page-subtitle">Continuación</p>
-
-            <div class="menu-section">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">ARROZ DE PATO NO FORNO</div>
-                        <div class="item-description">Arroz de pato al horno con bacon y chorizo</div>
-                    </div>
-                    <div class="item-price">$23.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">POSTA A MODA DO CHEF</div>
-                        <div class="item-description">500 Grs. Lomo de ternera a la parrilla a la moda del chef acompañada de papita asada con aceite de oliva, ajo, hierbas aromáticas</div>
-                    </div>
-                    <div class="item-price">Consultar</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">MEDALHÕES DE VITELA</div>
-                        <div class="item-description">Medallones de filet de ternera, con salsa al vino Porto, pimienta negra, acompañados con papitas asadas</div>
-                    </div>
-                    <div class="item-price">Consultar</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">MASSA A LAVRADOR</div>
-                        <div class="item-description">Coditos de pasta con carnes ahumadas, frijoles rojos y vegetales</div>
-                    </div>
-                    <div class="item-price">$16.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">FEIJOADA TRANSMONTANA</div>
-                        <div class="item-description">Rica Frijolada echada a base de carnes ahumadas, chorizo Ahumado</div>
-                    </div>
-                    <div class="item-price">$18.50</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Página 7: Postres -->
-        <div class="page" data-page="7">
-            <h2 class="page-title">Postres</h2>
-            <p class="page-subtitle">Dulces Tradicionales Portugueses</p>
-
-            <div class="menu-section">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">PASTEL DE NATA</div>
-                        <div class="item-description">Pastel típico de Portugal a base de crema de huevos</div>
-                    </div>
-                    <div class="item-price">$1.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">QUIJADA DA MADEIRA</div>
-                        <div class="item-description">Tartelete de Quesadilla típica de Portugal hecha a base de Queso fresco</div>
-                    </div>
-                    <div class="item-price">$5.60</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">TARTE DE AMENDOA</div>
-                        <div class="item-description">Tarte de almendras</div>
-                    </div>
-                    <div class="item-price">$6.40</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">SEDUÇÃO DE CAFÉ Y CHOCOLATE NEGRO</div>
-                        <div class="item-description">Postre a base de Chocolate, café y cocoa</div>
-                    </div>
-                    <div class="item-price">$5.80</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">SEMIFRIO COM MARMELADA DE VEGETAIS</div>
-                    </div>
-                    <div class="item-price">$4.60</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navegación -->
-        <div class="navigation">
-            <button class="nav-button" id="prevBtn" onclick="changePage(-1)">◀ Anterior</button>
-            <div class="page-indicator">
-                <span id="currentPage">1</span> / <span id="totalPages">7</span>
-            </div>
-            <button class="nav-button" id="nextBtn" onclick="changePage(1)">Siguiente ▶</button>
-        </div>
-    </div>
-
-    <script src="../reservas/script.js"></script>
-    <script src="script3.js"></script>
-
+    <script src="script3.js" defer></script>
 </body>
+
 </html>
