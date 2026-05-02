@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
-  <!-- Circle outline -->
-  <circle cx="30" cy="30" r="27" fill="none" stroke="#4caf50" stroke-width="3"/>
-  <!-- Water drop shape -->
-  <path d="M30 13 C30 13 18 26 18 33 C18 39.6 23.4 45 30 45 C36.6 45 42 39.6 42 33 C42 26 30 13 30 13Z" fill="#4caf50"/>
-  <!-- Strike-through line -->
-  <line x1="10" y1="50" x2="50" y2="10" stroke="#4caf50" stroke-width="3" stroke-linecap="round"/>
-</svg>
